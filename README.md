@@ -9,6 +9,14 @@
 ## Nome do Grupo
 
 ## Integrantes: 
+Abner Barbosa
+Alberto Miranda
+Amanda Fontes
+Gabriel Torres
+Livia Coutinho
+Paulo Evangelista
+Pedro Baptista
+
 
 
 ## Descrição
