@@ -1,0 +1,20 @@
+.bodySideBar {
+    position: absolute;
+    height: 48%;
+    background-color: #1f5de8;
+    width: 2rem;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    top: 1%;
+    left: 2%;
+    border-radius: 20px;
+}
+
+@media (min-width: 640px) {
+    .bodySideBar {
+        left: 2%;
+        top: 5%;
+        width: 5rem;
+        height: 90%;
+    }
+    
+}
