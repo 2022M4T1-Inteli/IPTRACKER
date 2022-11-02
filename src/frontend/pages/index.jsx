@@ -1,4 +1,4 @@
-export default function Home() {
+function Home() {
   return (
     <div className="flex flex-row h-full justify-center align-center">
       <div>
@@ -11,3 +11,5 @@ export default function Home() {
 
   )
 }
+
+export default Home
