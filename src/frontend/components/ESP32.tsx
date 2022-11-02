@@ -15,12 +15,12 @@ function Mesh() {
 
     return (
         <Suspense fallback={<div>loading...</div> /* or null */}>
-            <primitive ref={myMesh} object={gltf.scene} position={[0, 0, 0]} rotation={[0, 1.6, -0.04]} scale = {[3,3,3]} />
+            <primitive ref={myMesh} object={gltf.scene} position={[0, 0, 0]} rotation={[0, 1.6, -0.04]} scale = {[5,5,5]} />
         </Suspense>
     )
 }
 
-const Cube: React.FC = () => {
+const ESP32: React.FC = () => {
     return (
         <div style={{ height: '100%' }}>
             <Canvas camera={{ position: [0, 0, -40] }}>
@@ -44,4 +44,4 @@ const Cube: React.FC = () => {
     )
 }
 
-export default Cube
+export default ESP32
