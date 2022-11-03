@@ -42,8 +42,51 @@ function Admin() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex w-full justify-center items-center">
-                            <button className = "w-5/6 bg-green-btn hover:bg-green-600 h-12 rounded-xl font-bold Montserrat transition duration-300">Chame o equipamento</button>
+                        <div className="flex w-5/6 justify-center items-center">
+                            <button className = "w-full bg-green-btn hover:bg-green-600 h-12 rounded-xl font-bold Montserrat transition duration-300">Chame o equipamento</button>
+                        </div>
+                        <h1 className="Montserrat font-bold text-ipt text-xl">Histórico</h1>
+                        <div className="flex flex-wrap gap-6 w-5/6 mb-6 justify-center items-center">
+                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-green-btn">
+                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
+                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
+                                <div className="flex flex-col mr-2">
+                                    <h1 className="Montserrat font-bold">P1</h1>
+                                    <h1 className="Montserrat font-bold">S4</h1>
+                                </div>
+                            </div>
+                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-red-btn">
+                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
+                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
+                                <div className="flex flex-col mr-2">
+                                    <h1 className="Montserrat font-bold">P1</h1>
+                                    <h1 className="Montserrat font-bold">S4</h1>
+                                </div>
+                            </div>
+                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-green-btn">
+                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
+                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
+                                <div className="flex flex-col mr-2">
+                                    <h1 className="Montserrat font-bold">P1</h1>
+                                    <h1 className="Montserrat font-bold">S4</h1>
+                                </div>
+                            </div>
+                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-red-btn">
+                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
+                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
+                                <div className="flex flex-col mr-2">
+                                    <h1 className="Montserrat font-bold">P1</h1>
+                                    <h1 className="Montserrat font-bold">S4</h1>
+                                </div>
+                            </div>
+                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-green-btn">
+                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
+                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
+                                <div className="flex flex-col mr-2">
+                                    <h1 className="Montserrat font-bold">P1</h1>
+                                    <h1 className="Montserrat font-bold">S4</h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
