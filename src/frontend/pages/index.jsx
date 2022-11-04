@@ -1,8 +1,15 @@
-export default function Home() {
+function Home() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="flex flex-row h-full justify-center align-center">
+      <div>
+        <img src="/logoIPT.png" alt="logoIpt" width={400}/>
+      </div>
+      <div>
+        <h1>Home</h1>
+      </div>
+    </div>
 
   )
 }
+
+export default Home
