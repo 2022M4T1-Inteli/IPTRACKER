@@ -1,15 +1,35 @@
 import SideBar from "../components/SideBar"
 import ESP32 from "../components/ESP32"
 
+const axios = require('axios');
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
+
+function callBuzzer() {
+    console.log("callBuzzer");
+    axios.get('http://192.168.80.144/buzzerOn').then(res => {
+        console.log(res)
+    });
+    document.getElementById("btnAccept").style.display = "none";
+    document.getElementById("btnCancel").style.display = "flex";
+}
+
+function cancelBuzzer() {
+    console.log("cancelBuzzer");
+    axios.get('http://192.168.80.144/buzzerOff').then(res => {
+        console.log(res)
+    });
+    document.getElementById("btnCancel").style.display = "none";
+    document.getElementById("btnAccept").style.display = "flex";
+}
 
 function Admin() {
     return (
         <div>
             <div>
                 <SideBar />
-                <div className="absolute w-full sm:w-5/6 top-28 left-0 sm:top-12 sm:left-64">
+                <div className="absolute w-full sm:w-5/6 top-28 left-0 sm:top-12 sm:left-56">
                     <div className = "flex flex-col w-full gap-6 justify-center items-center">
                         <div className="flex w-full justify-center items-center">
                             <div className="w-5/6 flex justify-center items-center h-12 bg-gray-200 rounded-xl">
@@ -42,8 +62,11 @@ function Admin() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex w-5/6 justify-center items-center">
-                            <button className = "w-full bg-green-btn hover:bg-green-600 h-12 rounded-xl font-bold Montserrat transition duration-300">Chame o equipamento</button>
+                        <div id="btnAccept" className="flex w-5/6 justify-center items-center">
+                            <button className = "w-full bg-green-btn hover:bg-green-600 h-12 rounded-xl font-bold Montserrat transition duration-300" onClick={() => {callBuzzer()}}>Chame o equipamento</button>
+                        </div>
+                        <div id='btnCancel' className="hidden w-5/6 justify-center items-center">
+                            <button className = "w-full bg-red-btn hover:bg-red-600 h-12 rounded-xl font-bold Montserrat transition duration-300" onClick={() => {cancelBuzzer()}}>Cancele o chamado do equipamento</button>
                         </div>
                         <h1 className="Montserrat font-bold text-ipt text-xl">Histórico</h1>
                         <div className="flex flex-wrap gap-6 w-5/6 mb-6 justify-center items-center">
