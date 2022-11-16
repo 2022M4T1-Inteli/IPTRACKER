@@ -31,7 +31,7 @@ function SideBar() {
                         <button className='w-full h-full bg-transparent' onClick={() => setActive(!active)}><FontAwesomeIcon icon={active ? faArrowLeft : faArrowRight} size="xl" color='white'/></button>
                         {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex'>Expandir</label>}
                     </div>
-                    <div className="group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl mt-12 transition duration-500">
+                    <div className="group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition duration-500">
                         <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faHouse} size="xl"/>{active ? <label className='ml-4 Montserrat'>Home</label> : ""}</button>
                         {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex'>Home</label>}
                     </div>

@@ -1,0 +1,52 @@
+const mock = [{
+    number:1,
+    quandidade:5,
+    link:"/Sala"
+},
+{
+    number:2,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:3,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:4,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:5,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:6,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:7,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:8,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:9,
+    quandidade:5,
+    link:"/"
+},
+{
+    number:10,
+    quandidade:5,
+    link:"/"
+},]
+
+export default mock
