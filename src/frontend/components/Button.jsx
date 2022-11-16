@@ -1,8 +1,11 @@
 import styles from './Button.module.css'
+import Link from "next/link"
 
 function Button(props) {
     return (
-        <button className={styles.btn}>{props.ctn}</button>
+        <Link href="/predios">
+            <button className={styles.btn}>{props.ctn}</button>
+        </Link>
     )
 }
 

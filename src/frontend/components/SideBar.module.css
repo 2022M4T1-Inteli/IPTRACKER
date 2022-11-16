@@ -11,7 +11,7 @@
 }
 
 .bodySideBarMobile {
-    position: fixed;
+    text-align: center;
     height: 60px;
     background-color: #1f5de8;
     width: 90%;
@@ -25,8 +25,9 @@
     .bodySideBar {
         display: block;
     }
+
     .bodySideBarMobile {
         display: none;
     }
-    
+
 }
