@@ -22,7 +22,7 @@ function Predio({}) {
     return (
 
         <div className='flex justify-center'>
-            <div className='grid grid-cols-2 justify-items-center w-96'>
+            <div className='grid grid-cols-2 lg:grid-cols-4 lg:gap-14 justify-items-center w-96'>
                 {mock.map((element) => (
                     <button onClick={()=>{teste(element.number,element.quandidade)}} key={element.number} >
                         <div className="rounded-full bg-black hover:bg-blue-500 text-white h-24 w-24 flex flex-col items-center cursor-pointer mb-5"  >

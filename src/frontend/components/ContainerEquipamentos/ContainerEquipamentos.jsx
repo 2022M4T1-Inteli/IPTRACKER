@@ -5,7 +5,7 @@ const mock = [{link:"/"}, {link:"/a"}, {link:"/b"}, {link:"/c"}, {link:"/d"}, {l
 
 function ContainerEquipamentos() {
     return (
-        <div className="grid lg:grid-cols-4 grid-cols-2 gap-4 justify-items-center cursor-pointer">
+        <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 justify-items-center ">
             {mock.map((element) => (
                 <EquipamentosBloco key={element.link}></EquipamentosBloco>
             ))}

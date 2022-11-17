@@ -4,7 +4,7 @@ import imagebloco from "./image.png"
 
 function EquipamentosBloco({ link }) {
     return (
-        <div className="hover:shadow-sm hover:shadow-cyan-500">
+        <div className="hover:shadow-sm hover:shadow-cyan-500 cursor-pointer">
             <Link href="/admin">
                 <div className="rounded border-2 border-black w-36 h-36 ">
                     <Image src={imagebloco} alt="teste" width={64} height={64}></Image>

@@ -12,7 +12,10 @@ function equipamentos() {
 
             <h1 className="text-lg font-bold">Sala x - Equipamentos</h1>
             <input type="text" className="border-2 border-black mb-5 rounded-xl " placeholder="ID equipamento" />
-            <ContainerEquipamentos></ContainerEquipamentos>
+
+            <div>
+                <ContainerEquipamentos></ContainerEquipamentos>
+            </div>
         </div>
     )
 }

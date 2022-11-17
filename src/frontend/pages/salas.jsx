@@ -1,16 +1,28 @@
 import Sala from "../components/Sala/Sala"
-import Link from "next/link"
 
 function sala() {
 
     return (
         <div className="text-center">
-            <div className="bg-blue-500 m-4">
-                <h2>Andar 0</h2>
+            <div className="flex justify-center">
+                <div className="bg-blue-500 m-4 w-72 border-2 border-black rounded-2xl">
+                    <h2>Andar 0</h2>
+                </div>
             </div>
 
             <div>
-                <Sala/>
+                <Sala />
+            </div>
+
+            <div className="flex justify-center">
+                <div className="bg-blue-500 m-4 w-72 border-2 border-black rounded-2xl">
+                    <h2>Andar 1</h2>
+                </div>
+            </div>
+
+
+            <div>
+                <Sala />
             </div>
         </div>
     )
