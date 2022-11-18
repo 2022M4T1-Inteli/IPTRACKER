@@ -8,7 +8,7 @@ import { faBuilding, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 
 function callBuzzer() {
     console.log("callBuzzer");
-    axios.get('http://192.168.80.144/buzzerOn').then(res => {
+    axios.get('http://localhost:3001/ligar').then(res => {
         console.log(res)
     });
     document.getElementById("btnAccept").style.display = "none";
@@ -17,7 +17,7 @@ function callBuzzer() {
 
 function cancelBuzzer() {
     console.log("cancelBuzzer");
-    axios.get('http://192.168.80.144/buzzerOff').then(res => {
+    axios.get('http://localhost:3001/desligar').then(res => {
         console.log(res)
     });
     document.getElementById("btnCancel").style.display = "none";

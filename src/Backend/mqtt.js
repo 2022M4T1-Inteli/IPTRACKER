@@ -11,7 +11,6 @@ var options = {
 let newSSIDs = {"ssid": [], "rssi": []};
 
 function getRoom(array) {
-
     array.ssid.map(async (each, index) => {
         if(each[0] == "e" && each[1] == "s" && each[2] == "p") {
             newSSIDs.ssid.push(each);
@@ -20,7 +19,6 @@ function getRoom(array) {
     })
 
     if (newSSIDs.ssid.length > 1) {
-        console.log(newSSIDs)
         const max = Math.max(...newSSIDs.rssi);
         const index = newSSIDs.rssi.indexOf(max)
         let location = newSSIDs.ssid[index].split("-")[1]
@@ -45,7 +43,6 @@ client.on('error', function (error) {
 });
 
 client.on('message', function (topic, message) {
-    // called each time a message is received
     //console.log('Received message:', topic, message.toString());
     if(topic == "localESP") {
         const infos = JSON.parse(message)

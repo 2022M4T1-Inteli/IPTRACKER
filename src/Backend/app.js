@@ -9,13 +9,6 @@ const {publish} = require("./mqtt")
 const app = express();
 app.use(cors());
 
-// Só a necessidade de ativar está parte do código quando ele estiver em produção
-// app.use(
-//   cors({
-//     origin: "https://www.inteliblockchain.co/",
-//   })
-// );
-
 app.use(express.json()); //Irá suportar JSON
 app.use(
   bodyParser.urlencoded({

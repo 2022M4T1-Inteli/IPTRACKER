@@ -8,8 +8,8 @@
 #define pinLED1 12  //GP2 ESP-01
 
 //WiFi
-const char* SSID = "REDE HB";                // SSID / nome da rede WiFi que deseja se conectar
-const char* PASSWORD = "VCRP@271216";   // Senha da rede WiFi que deseja se conectar                       
+const char* SSID = "Inteli-COLLEGE";                // SSID / nome da rede WiFi que deseja se conectar
+const char* PASSWORD = "QazWsx@123";   // Senha da rede WiFi que deseja se conectar                       
  
 //MQTT Server
 const char* BROKER_MQTT = "210c91749efc49e9a28a2ddfd1b73711.s2.eu.hivemq.cloud"; //URL do broker MQTT que se deseja utilizar
