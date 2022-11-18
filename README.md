@@ -20,7 +20,9 @@ Pedro Baptista <br>
 
 
 ## Descrição
-Descrição do projeto
+   Os representantes do IPT (Instituto de Pesquisas Tecnológicas no Estado de São Paulo) chegaram ao Inteli apresentando o seguinte problema: o instituto apresenta, atualmente, R$187 milhões em máquinas e equipamentos em seu ativo. Este valor abrange aproximadamente 20.000 itens, dos quais 4000 necessitam ser monitorados.	Diante dessa situação, acrescenta-se o fato de que, por tratar-se de uma empresa pública, o IPT é, periodicamente, submetido a auditorias, entre elas: Secretaria da Fazenda do Estado de São Paulo, Tribunal de Contas do Estado, auditoria independente, auditorias de financiadores de projetos (FINEP, EMBRAPII, BNDES etc). Frequentemente, os auditores necessitam ver o ativo in loco (no próprio local) e, muitas vezes, os equipamentos não encontram-se no endereço informado no sistema. <br><br>
+	Logo, a fim de mitigar o problema supracitado, espera-se o desenvolvimento de um dispositivo que possa ser acoplado nos principais ativos do IPT para que a localização deles possa ser monitorada por meio da rede interna, ou seja, o desenvolvimento de dispositivo para localização real dos ativos por meio de IoT.
+
 
 ## 🛠 Estrutura de pastas
 
