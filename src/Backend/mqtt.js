@@ -27,6 +27,13 @@ function getRoom(array) {
         const building = location[1]
 
         return(`O objeto está localizado na sala ${room} do prédio ${building}`)
+    } else {
+        let location = newSSIDs.ssid[0].split("-")[1]
+        location = location.split("_")
+        const room = location[0]
+        const building = location[1]
+
+        return(`O objeto está localizado na sala ${room} do prédio ${building}`)
     }
 }
 
