@@ -9,13 +9,13 @@
 ## Nome do Grupo
 
 ## Integrantes: 
-Abner Barbosa <br>
-Alberto Miranda <br>
-Amanda Fontes <br>
-Gabriel Torres <br>
-Livia Coutinho <br>
-Paulo Evangelista <br>
-Pedro Baptista <br>
+- <a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/">Abner Barbosa</a>
+- <a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine//">Alberto Miranda</a>
+- <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Ribeiro</a>
+- <a href="https://www.linkedin.com/in/gabrielriostorres/">Gabriel Rios</a>
+- <a href="https://www.linkedin.com/in/liviapcoutinho/">Lívia Coutinho</a> 
+- <a href="https://www.linkedin.com/in/paulo-evangelista/">Paulo Evangelista</a>
+- <a href="https://www.linkedin.com/in/pedro-hagge/">Pedro Baptista</a>
 
 
 
