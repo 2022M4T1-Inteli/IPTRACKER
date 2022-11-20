@@ -13,7 +13,7 @@
 - <a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine//">Alberto Miranda</a>
 - <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Ribeiro</a>
 - <a href="https://www.linkedin.com/in/gabrielriostorres/">Gabriel Rios</a>
-- <a href="https://www.linkedin.com/in/liviapcoutinho/">Lívia Coutinho</a> 
+- <a href="https://www.linkedin.com/in/liviapcoutinho/">Livia Coutinho</a> 
 - <a href="https://www.linkedin.com/in/paulo-evangelista/">Paulo Evangelista</a>
 - <a href="https://www.linkedin.com/in/pedro-hagge/">Pedro Baptista</a>
 
