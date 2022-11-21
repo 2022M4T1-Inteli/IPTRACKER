@@ -36,29 +36,30 @@ function SideBar() {
                     <div className="group flex justify-center items-center w-3/5 h-12 mt-4">
 
                         <div>
-                            <button className='hover:scale-125 duration-200 transition-property: w-full h-full bg-transparent' onClick={() => setActive(!active)}><FontAwesomeIcon icon={active ? faArrowLeft : faArrowRight} size="2xl" className="text-white" /></button>
+                            <button className='hover:scale-125 duration-200 transition-property: w-full h-full bg-transparent' onClick={() => setActive(!active)}><FontAwesomeIcon icon={active ? faArrowLeft : faArrowRight} size="2xl" className="hover:text-white" /></button>
                             {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex'>Expandir</label>}
                         </div>
 
                     </div>
-                        <Link href="/" className=''>
-                    <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl ">
+                    <Link href="/" className=''>
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer ">
                             <div>
                                 <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faHouse} size="xl" />{active ? <label className='ml-4 Montserrat'>Home</label> : ""}</button>
                                 {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex'>Home</label>}
                             </div>
-                    </div>
-                        </Link>
-                        <Link href="/predios">
-                    <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl">
+                        </div>
+                    </Link>
+
+                    <Link href="/predios">
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer">
                             <div>
                                 <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBuilding} size="xl" /> {active ? <label className='Montserrat'>Dispositivos</label> : ""}</button>
                                 {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Dispositivos</label>}
                             </div>
-                    </div>
-                        </Link>
+                        </div>
+                    </Link>
                     {admin ?
-                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition duration-1000">
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
                             <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /> {active ? <label className='ml-2 Montserrat'>Admin</label> : ""}</button>
                             {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Admin</label>}
                         </div>
@@ -67,6 +68,7 @@ function SideBar() {
 
                 </div>
             </div>
+
             <div className={styles.bodySideBarMobile}>
                 <div className="flex flex-row items-center h-full w-full gap-4">
                     <div className="flex justify-center items-center h-3/4 w-12 ml-4">
