@@ -4,6 +4,7 @@ import { useState } from 'react'
 import ModalPredio from "../ModalPredio/ModalPredio"
 import mock from "./mock"
 
+
 function Predio({}) {
 
     const [view, setView] = useState(false)
@@ -22,13 +23,12 @@ function Predio({}) {
     return (
 
         <div className='flex justify-center'>
-            <div className='grid grid-cols-2 lg:grid-cols-4 lg:gap-14 justify-items-center w-96'>
+            <div className='grid grid-cols-2 lg:grid-cols-4 lg:gap-20 justify-items-center lg:w-110 md:w-100 w-2/3'>
                 {mock.map((element) => (
                     <button onClick={()=>{teste(element.number,element.quandidade)}} key={element.number} >
-                        <div className="rounded-full bg-black hover:bg-blue-500 text-white h-24 w-24 flex flex-col items-center cursor-pointer mb-5"  >
+                        <div className="lg:rounded rounded-full bg-gray-800 hover:bg-blue-500 text-white lg:h-36 lg:w-52 h-24 w-24 flex flex-col items-center justify-center cursor-pointer mb-5"  >
                             <h1 className="text-3xl">{element.number}</h1>
-                            <p>Dispositivos</p>
-                            <h2>{element.quandidade}</h2>
+                            <h2> {element.quandidade} equipamentos </h2>
                         </div>
                     </button>
                 ))}
