@@ -1,8 +1,6 @@
 import Link from "next/link";
 import ContainerEquipamentos from "../components/ContainerEquipamentos/ContainerEquipamentos";
 
-
-
 function equipamentos() {
     return (
         <div className="text-center mt-5">

@@ -58,13 +58,15 @@ function SideBar() {
                             </div>
                         </div>
                     </Link>
+                    <Link href="/notificacoes">
                     {admin ?
                         <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
-                            <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /> {active ? <label className='ml-2 Montserrat'>Admin</label> : ""}</button>
-                            {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Admin</label>}
+                            <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /> {active ? <label className='ml-2 Montserrat'>Notificações</label> : ""}</button>
+                            {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Notificações</label>}
                         </div>
                         : ""
                     }
+                    </Link>
 
                 </div>
             </div>
