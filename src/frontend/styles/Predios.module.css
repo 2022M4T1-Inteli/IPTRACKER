@@ -12,6 +12,7 @@
     color: white;
     outline: 0;
     font-size: 13pt;
+    margin-left: 7rem;
   }
   
   .input::placeholder {
@@ -23,6 +24,9 @@
   @media (max-width: 1024px) {
     .div {
       width: 24rem ;
+    }
+    .input {
+      margin-left: 0rem;
     }
   }
   

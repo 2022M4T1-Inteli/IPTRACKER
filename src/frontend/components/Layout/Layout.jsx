@@ -14,8 +14,9 @@ function Layout({ children }) {
 
             </head> */}
             <main >
-                <div className="relative">
+                <div className="relative w-10">
                     <SideBar />
+
                 </div>
 
                 <div className="">
