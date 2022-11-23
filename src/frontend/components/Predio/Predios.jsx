@@ -25,9 +25,9 @@ function Predio({ }) {
     return (
 
         <div className='flex justify-center'>
-            <div className='grid  lg:grid-cols-3 lg:gap-20 md:grid-cols-1 justify-items-center lg:w-100 md:w-90 lg:pl-28'>
+            <div className='grid  lg:grid-cols-3 lg:gap-14 md:grid-cols-1 justify-items-center lg:w-100 md:w-90 lg:pl-28'>
                 {mock.map((element) => (
-                    <div className='flex flex-col rounded-lg border-2 border-black w-80 shadow-md lg:mb-0 mb-4 '>
+                    <div className='flex flex-col rounded-lg border-2  w-80 shadow-md lg:mb-0 mb-4 bg-white'>
                         <div className='flex justify-start m-4 rounded-md bg-ipt w-24 p-2 text-white'>
                             <p className='ml-2'>Predio {element.number}</p>
                         </div>
