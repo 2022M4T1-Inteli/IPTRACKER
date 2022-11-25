@@ -11,18 +11,20 @@ function sala() {
                         <button>Voltar</button>
                     </Link>
                 </div>
-                <div className="bg-blue-500 m-4 w-72 border-2 border-black rounded-2xl">
-                    <h2>Andar 0</h2>
-                </div>
+                <div className="justify-center flex">
+                    <div className="bg-blue-500 m-4 w-72 border-2 border-black rounded-2xl text-white font-bold	">
+                            <h2>Andar 0</h2>
+                    </div>
             </div>
+        </div>
 
             <div>
                 <Sala />
             </div>
 
-            <div className="flex justify-center">
-                <div className="bg-blue-500 m-4 w-72 border-2 border-black rounded-2xl">
-                    <h2>Andar 1</h2>
+            <div className="justify-center flex">
+                <div className="bg-blue-500 m-4 w-72 border-2 border-black rounded-2xl text-white font-bold	">
+                        <h2>Andar 1</h2>
                 </div>
             </div>
 
