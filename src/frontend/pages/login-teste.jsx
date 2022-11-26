@@ -3,7 +3,7 @@ import Button from '../components/Button.jsx'
 
 function LoginTeste() {
   return (
-    <div >
+    <div className="min-h-screen w-full">
         <div className="flex flex-col min-h-screen w-full justify-between items-center sm:flex-row">
             <div className='h-96'>
                 <img src='/finder.svg' className='w-1/4 top-32 left-32 absolute hidden sm:flex'/>
