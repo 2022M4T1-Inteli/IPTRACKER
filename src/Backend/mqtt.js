@@ -63,7 +63,7 @@ client.on('message', function (topic, message) {
 // subscribe to topic 'my/test/topic'
 client.subscribe('localESP');
 
-function publish(topic, message) {
+async function publish(topic, message) {
     client.publish(topic, message);
 }
 
