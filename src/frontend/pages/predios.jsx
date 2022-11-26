@@ -1,14 +1,12 @@
 import Predio from "../components/Predio/Predios"
+import styles from '../styles/Predios.module.css'
 
 
 function Predios() {
-    
-
     return (
-        <div className="text-center">
-            
-            <h1 className="Montserrat font-bold text-lg">Prédios</h1>
-            <input type="text" className="border-2 border-black mb-5 rounded-xl " placeholder="Digite o número do prédio" />
+        <div className="text-center " >
+            <h1 className="Montserrat font-bold text-2xl text-black lg:pl-28">Prédios</h1>
+            <input type="text" className={styles.input}   placeholder="Digite o número do prédio" />
             <div>
                 <Predio/>
             </div>
