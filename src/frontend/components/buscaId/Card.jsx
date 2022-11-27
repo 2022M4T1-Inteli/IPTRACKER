@@ -21,6 +21,7 @@ function Card({ mock }) {
 
             <div className="text-2xl text-center">
               <p>
+                Última atualização - <span>10:00</span>
               </p>
             </div>
 
