@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import {faClock} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function Card({ mock }) {
 
@@ -12,18 +13,19 @@ function Card({ mock }) {
               <p className="ml-2 text-2xl ">Id: {element.id}</p>
             </div>
 
-            <div className="flex gap-2 text-2xl items-center justify-center m-4">
-              <h1>Predio 1,sala kgb</h1>
+            <div className="flex flex-col gap-2 text-2xl items-center justify-center m-4">
+              <h1>Predio - {element.predio}</h1>
+              <h1>Sala - {element.sala}</h1>
             </div>
 
             <div className="text-2xl text-center">
               <p>
-                Última atualização - <span>10:00</span>
+              <FontAwesomeIcon icon={faClock}></FontAwesomeIcon> - <span>10:00</span>
               </p>
             </div>
 
             <div className="flex justify-center">
-              <Link href="/salas">
+              <Link href="/admin">
                 <button className="bg-green-500 hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2 hover:bg-green-400">
                   Ver detalhes
                 </button>

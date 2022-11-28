@@ -3,7 +3,6 @@ import Link from "next/link"
 
 function Sala({ numeroSala }) {
     return (
-        <div className="flex flex-col justify-center">
             <div className="flex flex-col justify-center lg:items-center">
                 {mock.map((element) => (
                     <Link href={"/equipamentos"} key={element.numero}>
@@ -13,7 +12,6 @@ function Sala({ numeroSala }) {
                     </Link>
                 ))}
             </div>
-        </div>
     )
 }
 

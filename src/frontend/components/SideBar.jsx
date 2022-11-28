@@ -90,7 +90,7 @@ function SideBar() {
                     </div>
                     {admin ?
                         <div className="group flex justify-center items-center h-3/4 w-12 bg-ipt hover:bg-white rounded-2xl">
-                            <Link href="/notificacao">
+                            <Link href="/notificacoes">
                                 <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /></button>
                             </Link>
                         </div>

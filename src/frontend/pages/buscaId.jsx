@@ -1,8 +1,13 @@
 import Cards from '../components/buscaId/Card';
-import styles from '../styles/Predios.module.css';
 import { useState } from 'react';
 import mock from '../components/buscaId/mock';
-import { useEffect } from 'react';
+
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import stylePredio from '../styles/Predios.module.css'
+
+
 
 function BuscaId() {
   const [text, setText] = useState('');
@@ -22,20 +27,25 @@ function BuscaId() {
   };
 
   return (
-    <div className="">
+    <div className="text-center">
+
+
       <div className="flex justify-center text-center ml-28">
-        <h1 className="text-xl bold font-black">Busca por id</h1>
+        <h1 className="Montserrat font-bold text-2xl">Buscar por equipamento</h1>
       </div>
 
-      <div className="flex justify-center">
+
+      <div className="relative">
+        <FontAwesomeIcon className="absolute lg:pl-32 pt-7 h-7 pl-5" icon={faMagnifyingGlass}></FontAwesomeIcon>
         <input
+
           type="text"
-          className={styles.input}
-          placeholder="ensira id"
           value={text}
           onChange={handleOnChange}
-        />
+          className={stylePredio.input}
+          placeholder="Digite o ID!" />
       </div>
+
       <Cards mock={mocks} />
     </div>
   );
