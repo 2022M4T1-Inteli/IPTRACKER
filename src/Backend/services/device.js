@@ -82,11 +82,12 @@ class Device {
             throw new Error("Erro ao criar o dispositivo");
         }
     }
+
     async getHistory({ patID }) {
 
         //Consertar a maneira que busca no mongo
         try {
-            const result = await Patrimonio.findById(patID);
+            const result = await Patrimonio.findOne({patrimonioId:patID});
             return result;
         } catch {
             throw new Error("Erro ao buscar o dispositivo");

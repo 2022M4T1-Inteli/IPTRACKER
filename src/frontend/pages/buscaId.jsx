@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 function BuscaId() {
   const [text, setText] = useState('');
   const [mocks, setMocks] = useState(mock);
-  const [filterMock, setFilterMock] = useState(mock);
 
   const handleOnChange = event => {
     let inputValue = event.target.value;
