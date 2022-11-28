@@ -22,6 +22,6 @@ router.post(
     [body("deviceBattery", "Bateria do Patrimonio é necessário").exists({ checkFalsy: true })],
     deviceController.createDevice
 );
-
+router.get("/getHistory", deviceController.getHistory);
 //Exporta o ROUTER
 module.exports = router;

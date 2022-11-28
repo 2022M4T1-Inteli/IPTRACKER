@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-let newSSIDs = {"ssid": [], "rssi": []};
+let newSSIDs = { "ssid": [], "rssi": [] };
 
 async function getRoom(array) {
     if (array.ssid == "" || array.rssi == "") {
@@ -9,7 +9,7 @@ async function getRoom(array) {
     }
 
     array.ssid.map(async (each, index) => {
-        if(each[0] == "i" && each[1] == "p" && each[2] == "t" && each[3] == "-") {
+        if (each[0] == "i" && each[1] == "p" && each[2] == "t" && each[3] == "-") {
             newSSIDs.ssid.push(each);
             newSSIDs.rssi.push(array.rssi[index]);
         }
@@ -48,17 +48,17 @@ class Device {
         let predio;
 
         try {
-           const {room , building} = await getRoom(content);
-           sala = room;
-           predio = building;
+            const { room, building } = await getRoom(content);
+            sala = room;
+            predio = building;
         } catch (err) {
             throw new Error(err);
         }
-        
+
         console.log("O objeto está na sala ", sala, " do prédio ", predio)
 
-        newSSIDs = {"ssid": [], "rssi": []};
-        
+        newSSIDs = { "ssid": [], "rssi": [] };
+
         return `O objeto está na sala ${sala} do prédio ${predio}`;
     }
 
@@ -80,6 +80,16 @@ class Device {
             return device;
         } catch {
             throw new Error("Erro ao criar o dispositivo");
+        }
+    }
+    async getHistory({ patID }) {
+
+        //Consertar a maneira que busca no mongo
+        try {
+            const result = await Patrimonio.findById(patID);
+            return result;
+        } catch {
+            throw new Error("Erro ao buscar o dispositivo");
         }
     }
 }
