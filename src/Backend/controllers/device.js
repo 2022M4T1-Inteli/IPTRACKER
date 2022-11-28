@@ -60,10 +60,17 @@ const getHistory = async (req, res) => {
     }
 }
 
+const getPrediosSalasEquipamentos =async (req,res)=>{
+    //code here
+
+    Device.getPrediosSalasEquipamentos
+}
+
 
 //Exporta as funções do controller para o ROUTER
 module.exports = {
     teste,
     createDevice,
-    getHistory
+    getHistory,
+    getPrediosSalasEquipamentos
 }

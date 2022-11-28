@@ -23,5 +23,6 @@ router.post(
     deviceController.createDevice
 );
 router.get("/getHistory", deviceController.getHistory);
+router.get("/getPredioSalasEquipamentos",deviceController.getPrediosSalasEquipamentos)
 //Exporta o ROUTER
 module.exports = router;

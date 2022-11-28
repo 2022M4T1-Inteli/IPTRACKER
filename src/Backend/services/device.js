@@ -93,6 +93,10 @@ class Device {
             throw new Error("Erro ao buscar o dispositivo");
         }
     }
+
+    async getPrediosSalasEquipamentos(){
+        // code here
+    }
 }
 
 module.exports = {
