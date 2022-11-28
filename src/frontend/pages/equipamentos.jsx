@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ContainerEquipamentos from "../components/ContainerEquipamentos/ContainerEquipamentos";
+
 import {faHouse, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styles from '../styles/equipamentos.module.css'

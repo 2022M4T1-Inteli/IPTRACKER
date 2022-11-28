@@ -6,6 +6,10 @@ import { useEffect, useState } from 'react'
 import styles from './SideBar.module.css'
 import Link from "next/link"
 
+function callback(e) {
+    console.log(e.target)
+}
+
 function SideBar() {
 
     const [admin, setAdmin] = useState(true)
@@ -21,7 +25,7 @@ function SideBar() {
 
 
     return (
-        <div className='flex justify-center mt-3'>
+        <div className='flex justify-center mt-3 '>
             <div id="sideBar" className={styles.bodySideBar}>
                 <div className="flex flex-col items-center h-full w-full gap-4">
                     <div className="flex justify-center items-center w-3/5 h-12 mt-4">
@@ -32,37 +36,41 @@ function SideBar() {
                     <div className="group flex justify-center items-center w-3/5 h-12 mt-4">
 
                         <div>
-                            <button className='w-full h-full bg-transparent' onClick={() => setActive(!active)}><FontAwesomeIcon icon={active ? faArrowLeft : faArrowRight} size="xl" color='white' /></button>
+                            <button className='hover:scale-125 duration-200 transition-property: w-full h-full bg-transparent' onClick={() => setActive(!active)}><FontAwesomeIcon icon={active ? faArrowLeft : faArrowRight} size="2xl" className="hover:text-white" /></button>
                             {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex'>Expandir</label>}
                         </div>
 
                     </div>
-                    <div className="group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition duration-500">
-                        <Link href="/">
+                    <Link href="/" className=''>
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer ">
                             <div>
                                 <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faHouse} size="xl" />{active ? <label className='ml-4 Montserrat'>Home</label> : ""}</button>
                                 {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex'>Home</label>}
                             </div>
-                        </Link>
-                    </div>
-                    <div className="group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl">
-                        <Link href="/predios">
+                        </div>
+                    </Link>
+
+                    <Link href="/predios">
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer">
                             <div>
                                 <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBuilding} size="xl" /> {active ? <label className='Montserrat'>Dispositivos</label> : ""}</button>
                                 {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Dispositivos</label>}
                             </div>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
+                    <Link href="/notificacoes">
                     {admin ?
-                        <div className="group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition duration-1000">
-                            <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /> {active ? <label className='ml-2 Montserrat'>Admin</label> : ""}</button>
-                            {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Admin</label>}
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
+                            <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /> {active ? <label className='ml-2 Montserrat'>Notificações</label> : ""}</button>
+                            {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Notificações</label>}
                         </div>
                         : ""
                     }
+                    </Link>
 
                 </div>
             </div>
+
             <div className={styles.bodySideBarMobile}>
                 <div className="flex flex-row items-center h-full w-full gap-4">
                     <div className="flex justify-center items-center h-3/4 w-12 ml-4">
