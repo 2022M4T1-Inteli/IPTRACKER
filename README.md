@@ -25,30 +25,39 @@ Os representantes do IPT chegaram ao Inteli apresentando o seguinte problema: o 
 
 ## 🛠 Estrutura de pastas
 
-**|📁** documentos<br>
-    **|📁** antigos<br>
-**|📁** ESP32_Codigo<br>
-    **|📁** Beacon<br>
-    **|📁** codigo defeituoso<br>
-    **|📁** esp32_codigo_quasepronto<br>
-    **|📁** sketch_oct31a<br>
-    **|📁** tocaBuzzer<br>
-**|📁** src<br>
-    **|📁** Backend<br>
-        **|📁** configs<br>
-        **|📁** controllers<br>
-        **|📁** Models<br>
-        **|📁** Routes<br>
-        **|📁** services<br>
-    **|📁** frontend<br>
-        **|📁** .next<br>
-        **|📁** components<br>
-        **|📁** node_modules<br>
-        **|📁** pages<br>
-        **|📁** public<br>
-        **|📁** styles<br>
-**|📁** README<br>
-**|📁** .gitignore<br>
+**|:file_folder:** documentos<br>
+
+**|:file_folder:** antigos<br>
+
+**|:file_folder:** ESP32_Codigo<br>
+
+**|:file_folder:** Beacon<br>
+**|:file_folder:** codigo defeituoso<br>
+**|:file_folder:** esp32_codigo_quasepronto<br>
+**|:file_folder:** sketch_oct31a<br>
+**|:file_folder:** tocaBuzzer<br>
+
+**|:file_folder:** src<br>
+
+**|:file_folder:** Backend<br>
+
+**|:file_folder:** configs<br>
+**|:file_folder:** controllers<br>
+**|:file_folder:** Models<br>
+**|:file_folder:** Routes<br>
+**|:file_folder:** services<br>
+
+**|:file_folder:** frontend<br>
+
+**|:file_folder:** .next<br>
+**|:file_folder:** components<br>
+**|:file_folder:** node_modules<br>
+**|:file_folder:** pages<br>
+**|:file_folder:** public<br>
+**|:file_folder:** styles<br>
+
+**|:file_folder:** README<br>
+**|:file_folder:** .gitignore<br>
 
 
 Dentre os arquivos presentes na raiz do projeto, definem-se:
@@ -68,8 +77,33 @@ Se aplicável, descreva instruções para configuração do ambiente para desenv
 
 ## 🗃 Histórico de lançamentos
 
-* 0.0.1 - 19/10/2022
-    * Descrição
+* 1.0 — 21/10/2022 (Sprint I)
+    * Análises de negócios
+    * Entendimento da experiência do usuário
+    * Arquitetura da solução (Versão 1)
+
+* 2.0 — 04/11/2022 (Sprint II)
+    * Protótipo de interface do usuário (Figma)
+    * Arquitetura da Solução (Versão 2)
+    * Documentação das saídas
+    * Código fonte do sistema (Versão 1)
+    * Bloco central (Versão 1)
+
+* 3.0 — 18/11/2022 (Sprint III)
+    * Arquitetura da Solução (Versão 3)
+    * Código fonte do sistema (Versão 2)
+    * Documentação das saídas e interações
+    * Bloco central (Versão 2) e externos
+
+* 4.0 — 02/12/2022 (Sprint IV)
+    * Documentação das saídas, interações e respostas
+    * Código fonte do sistema (Versão 3)
+    * Bloco central (Versão 3) — sistema completo
+
+* 5.0 — 16/12/2022 (Sprint V)
+    * Documentação refinada e seções opcionais
+    * Código fonte do sistema (Versão Final)
+    * Sistema completo construído (Versão Final)
 
 
 ## 📋 Licença/License
