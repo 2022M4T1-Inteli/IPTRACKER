@@ -19,8 +19,11 @@ function equipamentos() {
                 </div>
 
             </div>
-            <div>
+            <div className="flex justify-center">
+                <div className="w-3/4">
                 <ContainerEquipamentos></ContainerEquipamentos>
+                </div>
+                
             </div>
             {/* <button id={styles.margin} className="bg-transparent border-2 rounded-full border-cyan-600 w-10 hover:bg-cyan-400 hover:border-transparent">
             <Link href="/salas"><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon></Link>
