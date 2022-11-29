@@ -17,6 +17,25 @@ const teste = async (req, res) => {
     }
 }
 
+const getEquipamentosRegistrados = async (req, res) => {
+    
+   //Valida se algum paremetro é inválido   
+    const errors = validationResult(req) 
+    if(!errors.isEmpty()){
+        return res.status(400).json({
+            error: errors.errors[0].msg
+        }            
+        )
+    }
+    try {
+        const result = await Device.pegarTodos()
+        res.send(result)
+    } catch (error) {
+        res.status(500).send(error.message)        
+    }
+
+}
+
 const createDevice = async (req, res) => {
     const { patId, deviceName, deviceSala, devicePredio, deviceHist, deviceBattery } = req.body;
 
@@ -72,5 +91,6 @@ module.exports = {
     teste,
     createDevice,
     getHistory,
-    getPrediosSalasEquipamentos
+    getPrediosSalasEquipamentos,
+    getEquipamentosRegistrados
 }
