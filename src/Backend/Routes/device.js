@@ -23,7 +23,8 @@ router.post(
     deviceController.createDevice
 );
 router.get("/getHistory", deviceController.getHistory);
-router.get("/getPredioSalasEquipamentos",deviceController.getPrediosSalasEquipamentos)
+
+router.get("/getPredioSalasEquipamentos",deviceController.getPrediosSalasEquipamentos);
 
 //Rota - equipamentos registrados
 router.get("/equipamentosRegistrados", deviceController.getEquipamentosRegistrados)
