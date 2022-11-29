@@ -6,7 +6,7 @@ const Device = new device.Device()
 
 const teste = async (req, res) => {
     //Pega as infos da requisição
-    const content  = req.body
+    const content = req.body
 
     try {
         //Tratamento das respostas do método da classe
@@ -50,7 +50,7 @@ const getHistory = async (req, res) => {
         })
     }
 
-    
+
     try {
         //Tratamento das respostas do método da classe
         const result = await Device.getHistory(patId);
@@ -60,10 +60,16 @@ const getHistory = async (req, res) => {
     }
 }
 
-const getPrediosSalasEquipamentos =async (req,res)=>{
+const getPrediosSalasEquipamentos = async (req, res) => {
     //code here
 
-    Device.getPrediosSalasEquipamentos
+    try {
+       const result = await  Device.getPrediosSalasEquipamentos()
+       res.send(result)
+
+    } catch (err) {
+        res.status(500).send(err.message)
+    }
 }
 
 

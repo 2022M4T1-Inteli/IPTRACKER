@@ -83,12 +83,12 @@ class Device {
         }
     }
 
-    async getHistory({ patID }) {
+    async getHistory(patID ) {
 
         //Consertar a maneira que busca no mongo
         try {
             const result = await Patrimonio.findOne({patrimonioId:patID});
-            return result;
+            return result.historico;
         } catch {
             throw new Error("Erro ao buscar o dispositivo");
         }
@@ -96,6 +96,12 @@ class Device {
 
     async getPrediosSalasEquipamentos(){
         // code here
+        try {
+            const result = await Patrimonio.find()
+            return result;
+        } catch {
+            throw new Error("Erro ao buscar as informações no banco de dados")
+        }
     }
 }
 
