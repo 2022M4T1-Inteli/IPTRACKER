@@ -1,5 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
+const { ERROR } = require('sqlite3');
 
 let newSSIDs = { "ssid": [], "rssi": [] };
 
@@ -60,6 +61,14 @@ class Device {
         newSSIDs = { "ssid": [], "rssi": [] };
 
         return `O objeto está na sala ${sala} do prédio ${predio}`;
+    }
+
+    async pegarTodos() {
+        try {
+            return await Patrimonio.find()
+        } catch (error) {
+            throw new ERROR("erro ao pegar todos")
+        }
     }
 
     async createDevice(patID, deviceName, deviceSala, devicePredio, deviceHist, deviceBattery) {
