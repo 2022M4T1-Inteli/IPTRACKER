@@ -4,30 +4,51 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Nome do Projeto 
+# IPTRACKER
 
-## Nome do Grupo
+## Solução IoT para o Instituto de Pesquisas Tecnológicas (IPT)
 
 ## Integrantes: 
-Abner Barbosa <br>
-Alberto Miranda <br>
-Amanda Fontes <br>
-Gabriel Torres <br>
-Livia Coutinho <br>
-Paulo Evangelista <br>
-Pedro Baptista <br>
+<a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/"> Abner Silva Barbosa</br></a> 
+<a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/">Alberto da Rocha Miranda</br></a> 
+<a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Ribeiro Fontes</br></a> 
+<a href="https://www.linkedin.com/in/gabrielriostorres/">Gabriel Rios Torres</br></a> 
+<a href="https://www.linkedin.com/in/liviapcoutinho/">Livia Lopes Coutinho</br></a> 
+<a href="https://www.linkedin.com/in/paulo-evangelista/">Paulo Presa Evangelista</br></a> 
+<a href="https://www.linkedin.com/in/pedro-hagge/">Pedro Hagge Baptista</br></a> 
 
 
 
 ## Descrição
-Descrição do projeto
+Os representantes do IPT chegaram ao Inteli apresentando o seguinte problema: o instituto apresenta, atualmente, R$187 milhões em máquinas e equipamentos em seu ativo. Este valor abrange aproximadamente 20.000 itens, dos quais 4000 necessitam ser monitorados.	Diante dessa situação, acrescenta-se o fato de que, por tratar-se de uma empresa pública, o IPT é, periodicamente, submetido a auditorias, entre elas: Secretaria da Fazenda do Estado de São Paulo, Tribunal de Contas do Estado, auditoria independente, auditorias de financiadores de projetos (FINEP, EMBRAPII, BNDES etc). Frequentemente, os auditores necessitam ver o ativo in loco (no próprio local) e, muitas vezes, os equipamentos não encontram-se no endereço informado no sistema. Logo, a fim de mitigar o problema supracitado, espera-se o desenvolvimento de um dispositivo que possa ser acoplado nos principais ativos do IPT para que a localização deles possa ser monitorada por meio da rede interna, ou seja, o desenvolvimento de dispositivo para localização real dos ativos por meio de IoT.
+
 
 ## 🛠 Estrutura de pastas
 
-**|-->** documentos<br>
-**|-->** src<br>
-**|-->** readme.md<br>
-**|-->** .gitignore<br>
+**|📁** documentos<br>
+    **|📁** antigos<br>
+**|📁** ESP32_Codigo<br>
+    **|📁** Beacon<br>
+    **|📁** codigo defeituoso<br>
+    **|📁** esp32_codigo_quasepronto<br>
+    **|📁** sketch_oct31a<br>
+    **|📁** tocaBuzzer<br>
+**|📁** src<br>
+    **|📁** Backend<br>
+        **|📁** configs<br>
+        **|📁** controllers<br>
+        **|📁** Models<br>
+        **|📁** Routes<br>
+        **|📁** services<br>
+    **|📁** frontend<br>
+        **|📁** .next<br>
+        **|📁** components<br>
+        **|📁** node_modules<br>
+        **|📁** pages<br>
+        **|📁** public<br>
+        **|📁** styles<br>
+**|📁** README<br>
+**|📁** .gitignore<br>
 
 
 Dentre os arquivos presentes na raiz do projeto, definem-se:
@@ -47,8 +68,6 @@ Se aplicável, descreva instruções para configuração do ambiente para desenv
 
 ## 🗃 Histórico de lançamentos
 
-A cada atualização os detalhes devem ser lançados aqui.
-
 * 0.0.1 - 19/10/2022
     * Descrição
 
@@ -59,6 +78,16 @@ A cada atualização os detalhes devem ser lançados aqui.
 
 ## 🎓 Referências
 
-Aqui estão as referências usadas no projeto.
+Abaixo, encontram-se as referências utilizadas no projeto.
 
-1. 
+1. GEOLOCALIZAÇÃO: tipos de dispositivos e vantagens de uso. OneDayTesting. Disponível em: <https://blog.onedaytesting.com.br/geolocalizacao-tipos-vantagens/. Acesso em: 13 out. 2022
+
+2. DORE, Elder. O que é geolocalização: como essa tecnologia revolucionou o cotidiano de tantas pessoas e empresas? Maplink, 4 mar. 2020. Disponível em: <https://maplink.global/blog/o-que-e-geolocalizacao/. Acesso em: 13 out. 2022
+
+3. CONHEÇA 4 opções de localizadores inteligentes. Tecmundo, 27 mai. 2021. Disponível em: <https://www.tecmundo.com.br/produto/218134-conheca-4-opcoes-localizadores-inteligentes.htm. Acesso em: 13 out 2022.
+
+4. LOCALIZAÇÃO Indoor: conheça 4 aplicações e tecnologias. Athene, 16 abr. 2021. Disponível em: <https://athenetec.com/localizacao-indoor/. Acesso em: 13 out 2022.
+
+5. QUAIS as tecnologias de monitoramento indoor mais atuais e suas vantagens? Lifelink, 10 out. 2022. Disponível em: <ttps://lifelink.com.br/blog/posts/tecnologias-de-monitoramento-indoor/. Acesso em: 13 out. 2022.
+
+6. SOBRE o IPT. Instituto de Pesquisas Tecnológicas. Disponível em: <https://www.ipt.br/institucional. Acesso em: 03 nov. 2022.
