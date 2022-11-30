@@ -5,7 +5,6 @@ import { useState } from 'react'
 import ModalPredio from "../ModalPredio/ModalPredio"
 import cell from "../../public/cell.png"
 import mock from "./mock"
-import { faBatteryQuarter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons
 
 
 function Predio({ }) {
@@ -32,7 +31,7 @@ function Predio({ }) {
 
                         <div className='flex justify-center'>
                             <Link href="/salas">
-                                <button className="bg-green-500 hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2 hover:bg-green-400">Ver detalhes</button>
+                                <button className="bg-blue-500 hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2  hover:bg-blue-400">Ver detalhes</button>
                             </Link>
                         </div>
                     </div>
