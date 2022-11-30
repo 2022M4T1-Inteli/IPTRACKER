@@ -48,7 +48,7 @@ function Admin() {
                                         <div className="flex flex-col gap-6 justify-center items-center">
                                             <div className="flex flex-row items-center gap-2">
                                                 <FontAwesomeIcon icon={faBuilding} size="lg" />
-                                                <label className="Montserrat font-semibold">Predio 1</label>
+                                                <label className="Montserrat font-semibold">Prédio 1</label>
                                             </div>
                                             <div className="flex flex-row items-center gap-2">
                                                 <FontAwesomeIcon icon={faDoorOpen} size="lg" />

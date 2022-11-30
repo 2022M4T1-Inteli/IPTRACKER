@@ -15,7 +15,7 @@ function sala() {
 
                 <div className="relative">
                     <FontAwesomeIcon className="absolute lg:pl-3 pt-7 h-7 pl-5" icon={faMagnifyingGlass}></FontAwesomeIcon>
-                    <input type="text" className={stylePredio.inputSala} placeholder="Digite a sala que deseja !" />
+                    <input type="text" className={stylePredio.inputSala} placeholder="Digite a sala que deseja" />
                 </div>
 
 

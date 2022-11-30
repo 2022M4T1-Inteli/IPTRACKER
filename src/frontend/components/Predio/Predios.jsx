@@ -16,7 +16,7 @@ function Predio({ }) {
                 {mock.map((element) => (
                     <div className='flex flex-col rounded-lg border-2 border-black w-80 shadow-md lg:mb-0 mb-4 '>
                         <div className='flex justify-start m-4 rounded-md bg-ipt w-24 p-2 text-white'>
-                            <p className='ml-2'>Predio {element.number}</p>
+                            <p className='ml-2'>Prédio {element.number}</p>
                         </div>
 
                         <div className='flex gap-2 text-2xl items-center m-4'>
