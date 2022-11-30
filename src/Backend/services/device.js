@@ -1,6 +1,5 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const { ERROR } = require('sqlite3');
 
 let newSSIDs = { "ssid": [], "rssi": [] };
 
@@ -48,6 +47,8 @@ class Device {
         let sala;
         let predio;
 
+        let patrimonioId = content.patrimonioId;
+
         try {
             const { room, building } = await getRoom(content);
             sala = room;
@@ -55,12 +56,29 @@ class Device {
         } catch (err) {
             throw new Error(err);
         }
+        
+        try {
+            console.log(patrimonioId);
+            const device = await Patrimonio.findOne({patrimonioId: patrimonioId});
+            console.log(sala);
+            console.log(predio);
+            device.sala = sala;
+            device.predio = predio;
+            const edit = JSON.parse(device.historico)
+            edit.push(`${sala}_${predio}`);
+            device.historico = JSON.stringify(edit);
 
-        console.log("O objeto está na sala ", sala, " do prédio ", predio)
 
-        newSSIDs = { "ssid": [], "rssi": [] };
+            try {
+                await device.save();
+            } catch (err) {
+                throw new Error(err);
+            }
+        } catch (err) {
+            throw new Error(err);
+        }
 
-        return `O objeto está na sala ${sala} do prédio ${predio}`;
+        newSSIDs = {"ssid": [], "rssi": []};
     }
 
     async pegarTodos() {
@@ -71,7 +89,7 @@ class Device {
         }
     }
 
-    async createDevice(patID, deviceName, deviceSala, devicePredio, deviceHist, deviceBattery) {
+    async createDevice(patID, deviceName, deviceSala, devicePredio, deviceBattery) {
         const actualData = new Date().toUTCString();
 
         const device = new Patrimonio({
@@ -79,7 +97,7 @@ class Device {
             name: deviceName,
             sala: deviceSala,
             predio: devicePredio,
-            historico: deviceHist,
+            historico: "[]",
             batery: deviceBattery,
             created_at: actualData
         })

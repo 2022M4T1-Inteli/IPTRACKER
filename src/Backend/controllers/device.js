@@ -37,7 +37,7 @@ const getEquipamentosRegistrados = async (req, res) => {
 }
 
 const createDevice = async (req, res) => {
-    const { patId, deviceName, deviceSala, devicePredio, deviceHist, deviceBattery } = req.body;
+    const { patId, deviceName, deviceSala, devicePredio, deviceBattery } = req.body;
 
     //Valida se algum paremetro é inválido
     const errors = validationResult(req)
@@ -50,7 +50,7 @@ const createDevice = async (req, res) => {
 
     try {
         //Tratamento das respostas do método da classe
-        const result = await Device.createDevice(patId, deviceName, deviceSala, devicePredio, deviceHist, deviceBattery);
+        const result = await Device.createDevice(patId, deviceName, deviceSala, devicePredio, deviceBattery);
         res.send(result)
     } catch (err) {
         res.status(500).send(err.message)

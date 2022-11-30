@@ -18,7 +18,6 @@ router.post(
     [body("deviceName", "Nome do Patrimonio é necessário").exists({ checkFalsy: true })],
     [body("deviceSala", "Sala do Patrimonio é necessário").exists({ checkFalsy: true })],
     [body("devicePredio", "Prédio do Patrimonio é necessário").exists({ checkFalsy: true })],
-    [body("deviceHist", "Histórico Patrimonio é necessário").exists({ checkFalsy: true })],
     [body("deviceBattery", "Bateria do Patrimonio é necessário").exists({ checkFalsy: true })],
     deviceController.createDevice
 );

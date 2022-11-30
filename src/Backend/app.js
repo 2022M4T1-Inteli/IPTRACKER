@@ -59,25 +59,13 @@ mongoose.connect(`mongodb+srv://IPTracker:${process.env.MONGO_PASS}@cluster0.zyr
 
 const PORT = process.env.PORT || 3001;
 
-//BCIBotao1
-
-app.post("/teste", async (req, res) => {
-    const infos = req.body
-
-    const {room , building} = getRoom(infos);
-
-    console.log("O objeto está na sala ", room, " do prédio ", building)
-
-    newSSIDs = {"ssid": [], "rssi": []};
-    
-    res.status(200).send("Deu Certo");
-})
-
 const buzzerRouter = require('./Routes/buzzer')
 const deviceRouter = require('./Routes/device')
+const userRouter = require('./Routes/user')
 
 app.use("/Buzzer", buzzerRouter)
 app.use("/Device", deviceRouter)
+app.use("/User", userRouter)
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta http://localhost:${PORT}`);
