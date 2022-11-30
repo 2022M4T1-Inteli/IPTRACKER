@@ -12,15 +12,16 @@ function Bateria() {
                       
 
             <div className="container"> {/*div com título, ícone e input*/}
-                <h1 className="Montserrat font-bold text-2xl text-black lg:pl-28 bg-sky-500 hover:bg-cyan-600">STATUS DA BATERIA</h1>
+                {/* <h1 className="Montserrat font-bold text-2xl text-black lg:pl-28 bg-sky-500 hover:bg-cyan-600">STATUS DA BATERIA</h1> */}
+                <h1 className="Montserrat font-bold text-2xl text-black lg:pl-28">Status da Bateria</h1>
                 <span class= "icon" ><FontAwesomeIcon icon={faMagnifyingGlass} size="lg" position="absolute" /></span>
                 <input type="text" className={styles.input}   placeholder="Insira o código do equipamento" />
             </div>
 
-            <div className="flex flex-row flex justify-center">
+            {/* <div className="flex flex-row flex justify-center">
                 <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
                 <p className="Montserrat font-bold blue 600">O objetivo era que a lupa estivesse no input, mas não está indo. O FontAwesome está aqui, no entanto.</p>
-            </div>
+            </div> */}
 
             
 
