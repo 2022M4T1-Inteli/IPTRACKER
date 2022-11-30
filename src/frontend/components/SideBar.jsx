@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faArrowRight, faHouse, faMobileButton, faArrowLeft, faShield, faBuilding, faBell } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faHouse, faMobileButton, faArrowLeft, faShield, faBuilding, faBell, faBatteryQuarter } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 
 import styles from './SideBar.module.css'
@@ -63,6 +63,16 @@ function SideBar() {
                         <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
                             <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBell} size="xl" /> {active ? <label className='ml-2 Montserrat'>Notificações</label> : ""}</button>
                             {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Notificações</label>}
+                        </div>
+                        : ""
+                    }
+                    </Link>
+
+                    <Link href="\bateria">
+                    {admin ?
+                        <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
+                            <button className='w-full h-full bg-transparent'><FontAwesomeIcon icon={faBatteryQuarter} size="xl" /> {active ? <label className='ml-2 Montserrat'>Bateria</label> : ""}</button>
+                            {active ? "" : <label className='absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500'>Bateria</label>}
                         </div>
                         : ""
                     }

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import ModalPredio from "../ModalPredio/ModalPredio"
 import cell from "../../public/cell.png"
 import mock from "./mock"
+import { faBatteryQuarter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons
 
 
 function Predio({ }) {
