@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "8c315820-a2f2-4839-9206-f533f4485cc8",
+		"name": "IpTrackers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20613979"
+	},
+	"item": [
+		{
+			"name": "Criar dispositivo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "patId",
+							"value": "1919199191",
+							"type": "text"
+						},
+						{
+							"key": "deviceName",
+							"value": "celular",
+							"type": "text"
+						},
+						{
+							"key": "deviceSala",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "devicePredio",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "deviceBattery",
+							"value": "40",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/Device/createDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Device",
+						"createDevice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Equipamentos em uma sala",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "predio",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "sala",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/Device/getEquipamentoSala",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Device",
+						"getEquipamentoSala"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salas em um prédio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "number",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/Device/getSalas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Device",
+						"getSalas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todos os prédios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3001/Device/getPredios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Device",
+						"getPredios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todos equipamentos registrados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/Device/equipamentosRegistrados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Device",
+						"equipamentosRegistrados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Histórico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "patId",
+							"value": "132",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/Device/getHistory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Device",
+						"getHistory"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
