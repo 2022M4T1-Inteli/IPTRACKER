@@ -28,5 +28,12 @@ router.get("/getPredioSalasEquipamentos",deviceController.getPrediosSalasEquipam
 //Rota - equipamentos registrados
 router.get("/equipamentosRegistrados", deviceController.getEquipamentosRegistrados)
 
+// Rota - predios registrados
+router.get("/getPredios",deviceController.getPredios)
+
+router.get("/getSalas",deviceController.getSalas)
+
+router.get("/getEquipamentoSala", deviceController.getEquipamentoSala)
+
 //Exporta o ROUTER
 module.exports = router;
