@@ -8,15 +8,9 @@ import {
 //import Image from "./Icone-bateria-Png.png"
 import Link from 'next/link';
 import axios from 'axios';
+import { useState } from 'react';
 
-function Bateria() {
-  axios
-    .get('http://10.128.65.146:3000Device/equipamentosRegistrados')
-    .then(result => {
-      console.log(result);
-    });
-  
-  
+function Bateria({ data }) {
   return (
     <div className="text-center">
       {' '}
@@ -36,13 +30,30 @@ function Bateria() {
         />
       </div>
       <div className="flex justify-center">
-        <div className="w-3/4">
-          <StatusdaBateria props="a" />
+        <div>
+          <StatusdaBateria props={data} />
         </div>
       </div>
       <div></div>
     </div>
   );
 }
+export const getServerSideProps = async ctx => {
+  //{predios:,qnt:}
+  let data;
+  await axios
+    .get('http://localhost:3001/Device/equipamentosRegistrados')
+    .then(result => {
+      data = result.data;
+    })
+    .catch(error => {
+      ctx.res.writeHead(302, {
+        Location: '/'
+      });
+      ctx.res.end();
+    });
+
+  return { props: { data } };
+};
 
 export default Bateria;

@@ -3,18 +3,9 @@ import styles from '../styles/Predios.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHouse } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { useState } from 'react';
 
-function Predios() {
-  const [state, setState] = useState([]);
-
-  async function teste() {
-    await axios
-      .get('http://10.128.65.146:3001/Device/getPredios')
-      .then(response => {
-        setState(response.data);
-      });
-  }
+function Predios({ data }) {
+  async function teste() {}
 
   teste();
 
@@ -35,7 +26,7 @@ function Predios() {
         />
       </div>
       <div>
-        <Predio props={state} />
+        <Predio props={data} />
       </div>
     </div>
   );
@@ -56,7 +47,16 @@ export const getServerSideProps = async ctx => {
       ctx.res.end();
     });
 
-  return { props: {} };
+  let data;
+  await axios.get('http://localhost:3001/Device/getPredios').then(response => {
+    data = response.data;
+  });
+
+  return {
+    props: {
+      data
+    }
+  };
 };
 
 export default Predios;

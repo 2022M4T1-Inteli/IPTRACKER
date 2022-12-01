@@ -1,14 +1,16 @@
 import Link from 'next/link';
-import {faClock} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Card({ mock }) {
-
   return (
     <div className="flex justify-center">
       <div className="grid  lg:grid-cols-3 lg:gap-20 md:grid-cols-1 justify-items-center lg:w-100 md:w-90 lg:pl-28">
         {mock.map(element => (
-          <div key={element.patrimonioId} className="flex flex-col rounded-lg border-2 border-black w-80 shadow-md lg:mb-0 mb-4 items-center">
+          <div
+            key={element.patrimonioId}
+            className="flex flex-col rounded-lg border-2 border-black w-80 shadow-md lg:mb-0 mb-4 items-center"
+          >
             <div className="flex  m-4 rounded-md bg-ipt w-24 p-2 text-white items-center justify-center">
               <p className="ml-2 text-2xl ">Id: {element.patrimonioId}</p>
             </div>
@@ -20,7 +22,8 @@ function Card({ mock }) {
 
             <div className="text-2xl text-center">
               <p>
-              <FontAwesomeIcon icon={faClock}></FontAwesomeIcon> - <span>10:00</span>
+                <FontAwesomeIcon icon={faClock}></FontAwesomeIcon> -{' '}
+                <span>10:00</span>
               </p>
             </div>
 
