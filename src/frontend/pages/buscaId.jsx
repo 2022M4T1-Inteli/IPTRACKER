@@ -1,5 +1,5 @@
 import Cards from '../components/buscaId/Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import mock from '../components/buscaId/mock';
 
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -14,18 +14,19 @@ function BuscaId() {
 
 
   const [text, setText] = useState('');
-  const [mocks, setMocks] = useState(mock);
   const [data, setData] = useState([]);
 
   async function chamadaDB (){
     axios.get("http://localhost:3001/Device/equipamentosRegistrados").then((element)=> {
       setData(element.data)
-      console.log(data)
     })
 
   }
 
-  chamadaDB()
+  useEffect(()=>{
+    chamadaDB()
+  },[])
+
 
   const handleOnChange = event => {
     let inputValue = event.target.value;
@@ -33,10 +34,10 @@ function BuscaId() {
     if (inputValue) {
       setText(inputValue);
 
-      setMocks(mocks.filter(e => e.id.includes(inputValue)));
+      setData(data.filter(e => e.patrimonioId.includes(inputValue)));
     } else {
       setText('');
-      setMocks(mock);
+      chamadaDB()
     }
   };
 
@@ -60,7 +61,7 @@ function BuscaId() {
           placeholder="Digite o ID!" />
       </div>
 
-      <Cards mock={mocks} />
+      <Cards mock={data} />
     </div>
   );
 }
