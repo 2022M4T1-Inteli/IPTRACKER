@@ -1,30 +1,37 @@
-import SideBar from "../components/SideBar"
-import ESP32 from "../components/ESP32"
+import SideBar from "../../components/SideBar"
+import ESP32 from "../../components/ESP32"
 
 const axios = require('axios');
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 
-function callBuzzer() {
-    console.log("callBuzzer");
-    axios.get('http://localhost:3001/ligar/').then(res => {
-        console.log(res)
-    });
-    document.getElementById("btnAccept").style.display = "none";
-    document.getElementById("btnCancel").style.display = "flex";
-}
 
-function cancelBuzzer() {
-    console.log("cancelBuzzer");
-    axios.get('http://localhost:3001/desligar').then(res => {
-        console.log(res)
-    });
-    document.getElementById("btnCancel").style.display = "none";
-    document.getElementById("btnAccept").style.display = "flex";
-}
 
 function Admin() {
+
+    const router = useRouter()
+    const {admin} = router.query
+    console.log(admin)
+
+    function callBuzzer() {
+        console.log("callBuzzer");
+        axios.get('http://localhost:3001/Buzzer/ligar/132').then(res => {
+            console.log(res)
+        });
+        document.getElementById("btnAccept").style.display = "none";
+        document.getElementById("btnCancel").style.display = "flex";
+    }
+
+    function cancelBuzzer() {
+        console.log("cancelBuzzer");
+        axios.get('http://localhost:3001/Buzzer/desligar/132').then(res => {
+            console.log(res)
+        });
+        document.getElementById("btnCancel").style.display = "none";
+        document.getElementById("btnAccept").style.display = "flex";
+    }
+    
     return (
         <div>
             <div>

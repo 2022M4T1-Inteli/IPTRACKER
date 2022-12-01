@@ -1,20 +1,36 @@
-import Link from "next/link"
 import { useRouter } from "next/router"
+import {useState} from "react"
 import Sala from "../../components/Sala/Sala"   
 import stylePredio from '../../styles/Predios.module.css'
 import { faMagnifyingGlass, faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import axios from "axios"
+
 
 function sala() {
 
     const router = useRouter();
 
+    const [sala, setSala] = useState([])
+
     const {salas} = router.query
-    console.log(salas)
+
+    async function teste(){
+        await axios.post("http://localhost:3001/Device/getSalas", {
+            number: salas            
+        }).then((element)=> {
+            setSala(element.data) 
+        })
+        
+        
+    }
+
+    teste()   
+    
 
     return (
         <div className="flex justify-center text-center">
-            <div className="">
+            <div>
 
                 <h1 className="Montserrat font-bold text-2xl">Salas</h1>
 
@@ -24,7 +40,7 @@ function sala() {
                 </div>
 
                 <div>
-                    <Sala />
+                    <Sala numeroSala={sala} numeroPredio={salas} />
                 </div>
 
             </div>

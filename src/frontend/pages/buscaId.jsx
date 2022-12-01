@@ -6,12 +6,26 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import stylePredio from '../styles/Predios.module.css'
-
+import axios from 'axios';
 
 
 function BuscaId() {
+
+
+
   const [text, setText] = useState('');
   const [mocks, setMocks] = useState(mock);
+  const [data, setData] = useState([]);
+
+  async function chamadaDB (){
+    axios.get("http://localhost:3001/Device/equipamentosRegistrados").then((element)=> {
+      setData(element.data)
+      console.log(data)
+    })
+
+  }
+
+  chamadaDB()
 
   const handleOnChange = event => {
     let inputValue = event.target.value;

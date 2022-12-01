@@ -140,12 +140,34 @@ class Device {
   }
 
   async getAllBuildings() {
-    try {
-      const result = await Patrimonio.find().distinct("predio");
-      return result;
-    } catch {
-      throw new Error("Erro ao buscar as informações no banco de dados");
+    let predios = [];
+    const result = await Patrimonio.find().distinct("predio");
+
+    async function getQnts() {
+      for(let i = 0; i < result.length; i++) {
+        let qnt = []
+        try {
+          qnt = await Patrimonio.find({predio: result[i]})
+        } catch {
+          throw new Error("Não foi possível verificar a quantidade")
+        }
+
+        const teste = {
+          'predio': result[i],
+          'qnt': qnt.length
+        }
+
+        predios.push(teste)
+      }
     }
+
+    try {
+      await getQnts();
+    } catch (err){
+      throw new Error(err)
+    }
+    
+    return predios;
   }
 
   async getAllSalasBuildings(Number) {
