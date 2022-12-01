@@ -27,7 +27,7 @@ function EquipamentosBloco({ nome, ID, link, status }) {
                 <h1><span className="font-bold">ID:</span>  {ID}</h1>
             </div>
 
-            <Link href={`/admin`}>
+            <Link href={`/admin/${ID}`}>
                 <button className="bg-blue-500 hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2 hover:bg-blue-400">Ver detalhes</button>
             </Link>
 

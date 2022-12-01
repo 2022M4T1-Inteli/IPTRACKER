@@ -5,16 +5,13 @@ import { faMagnifyingGlass, faHouse } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 function Predios({ data }) {
-  async function teste() {}
-
-  teste();
 
   return (
     <div className="text-center justify-center ">
       <h1 className="Montserrat font-bold text-2xl text-black lg:pl-28">
         Prédios
       </h1>
-      <div className="relative    ">
+      <div className="relative">
         <FontAwesomeIcon
           className="absolute lg:pl-32 pt-7 h-7 sm:pl-5"
           icon={faMagnifyingGlass}

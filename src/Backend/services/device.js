@@ -189,14 +189,13 @@ class Device {
   }
 
   async getInfosDevice(patId) {
-    //Requisição de busca na tabela "users" para verificar a existência de um usuário com o email indicado no LOGIN
-    const device = await Patrimonio.findOne({ patId: patId });
-
-    if(user.length == 0) {
-        throw new Error("Usuário não encontrado")
+    try{
+      const device = await Patrimonio.findOne({ patrimonioId: patId });
+      return device;
+    }catch{
+      throw new Error("Erro ao buscar as informações no banco de dados");
     }
 
-    return device;
 }
 }
 

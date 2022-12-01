@@ -59,7 +59,7 @@ router.post(
 router.get(
     "/infosDevice/:patId",
     [param("patId", "ID de Patrimonio é necessário").exists({ checkFalsy: true })],
-    deviceController.getEquipamentoSala
+    deviceController.getInfosDevice
 )
 
 //Exporta o ROUTER

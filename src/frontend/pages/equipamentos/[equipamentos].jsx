@@ -7,9 +7,6 @@ import stylePredio from '../../styles/Predios.module.css';
 import axios from 'axios';
 
 function equipamentos({ data }) {
-  async function chamada() {}
-
-  chamada();
   return (
     <div className="text-center mt-5">
       <h1 className="Montserrat font-bold text-2xl">Equipamentos</h1>

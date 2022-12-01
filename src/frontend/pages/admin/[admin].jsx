@@ -1,23 +1,17 @@
-import SideBar from "../../components/SideBar"
 import ESP32 from "../../components/ESP32"
-
-const axios = require('axios');
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
-import {useRouter} from "next/router"
+import axios from "axios"
 
 
 
-function Admin() {
 
-    const router = useRouter()
-    const {admin} = router.query
-    console.log(admin)
+function admin({data}) {
+
 
     function callBuzzer() {
         console.log("callBuzzer");
-        axios.get('http://localhost:3001/Buzzer/ligar/132').then(res => {
+        axios.get(`http://localhost:3001/Buzzer/ligar/${data.patrimonioId}`).then(res => {
             console.log(res)
         });
         document.getElementById("btnAccept").style.display = "none";
@@ -26,7 +20,7 @@ function Admin() {
 
     function cancelBuzzer() {
         console.log("cancelBuzzer");
-        axios.get('http://localhost:3001/Buzzer/desligar/132').then(res => {
+        axios.get(`http://localhost:3001/Buzzer/desligar/${data.patrimonioId}`).then(res => {
             console.log(res)
         });
         document.getElementById("btnCancel").style.display = "none";
@@ -41,7 +35,7 @@ function Admin() {
                     <div className="flex flex-col w-full gap-6 justify-center items-center">
                         <div className="flex w-full justify-center items-center">
                             <div className="w-5/6 flex justify-center items-center h-12 bg-gray-200 rounded-xl">
-                                <h1 className="Montserrat">iPad / 123123123123123123</h1>
+                                <h1 className="Montserrat">{data.name} / {data.patrimonioId}</h1>
                             </div>
                         </div>
                         <div className="w-5/6 gap-6 flex flex-col sm:flex-row">
@@ -56,11 +50,11 @@ function Admin() {
                                         <div className="flex flex-col gap-6 justify-center items-center">
                                             <div className="flex flex-row items-center gap-2">
                                                 <FontAwesomeIcon icon={faBuilding} size="lg" />
-                                                <label className="Montserrat font-semibold">Prédio 1</label>
+                                                <label className="Montserrat font-semibold">Prédio {data.predio}</label>
                                             </div>
                                             <div className="flex flex-row items-center gap-2">
                                                 <FontAwesomeIcon icon={faDoorOpen} size="lg" />
-                                                <label className="Montserrat font-semibold">Sala 4</label>
+                                                <label className="Montserrat font-semibold">Sala {data.sala}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -128,4 +122,14 @@ function Admin() {
     )
 }
 
-export default Admin
+export const getServerSideProps = async ctx => {
+    let data;
+    admin = ctx.params.admin
+    await axios.get(`http://localhost:3001/Device/infosDevice/${admin}`).then(result => {
+        data = result.data
+    })
+    return {props:{data}}
+    
+}
+
+export default admin
