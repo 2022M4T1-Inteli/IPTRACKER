@@ -18,7 +18,7 @@ function Predio({ }) {
                         
 
                         <div className='flex justify-start m-4 rounded-md bg-ipt w-24 p-2 text-white hover:scale-125 duration-200 '>
-                            <Link href="/salas">
+                            <Link href={`/salas/${element.number}`}>
                                 <button className='ml-2'>Prédio {element.number}</button>
                             </Link>
                         </div>
@@ -34,7 +34,7 @@ function Predio({ }) {
                         </div>
 
                         <div className='flex justify-center'>
-                            <Link href="/salas">
+                            <Link href={`/salas/${element.number}`}>
                                 <button className="bg-blue-500 text-white hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2  hover:bg-blue-400">Ver detalhes</button>
                             </Link>
                         </div>
