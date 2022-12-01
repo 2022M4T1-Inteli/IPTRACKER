@@ -18,12 +18,12 @@ const teste = async (req, res) => {
 };
 
 const getPredios = async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({
-      error: errors.errors[0].msg,
-    });
-  }
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   return res.status(400).json({
+  //     error: errors.errors[0].msg,
+  //   });
+  // }
   try {
     const result = await Device.getAllBuildings();
     res.send(result);
@@ -33,13 +33,13 @@ const getPredios = async (req, res) => {
 };
 
 const getEquipamentosRegistrados = async (req, res) => {
-  //Valida se algum paremetro é inválido
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({
-      error: errors.errors[0].msg,
-    });
-  }
+  // //Valida se algum paremetro é inválido
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   return res.status(400).json({
+  //     error: errors.errors[0].msg,
+  //   });
+  // }
   try {
     const result = await Device.pegarTodos();
     res.send(result);
@@ -49,8 +49,7 @@ const getEquipamentosRegistrados = async (req, res) => {
 };
 
 const createDevice = async (req, res) => {
-  const { patId, deviceName, deviceSala, devicePredio, deviceBattery } =
-    req.body;
+  const { patId, deviceName, deviceSala, devicePredio, deviceBattery } = req.body;
 
   //Valida se algum paremetro é inválido
   const errors = validationResult(req);
@@ -63,13 +62,7 @@ const createDevice = async (req, res) => {
 
   try {
     //Tratamento das respostas do método da classe
-    const result = await Device.createDevice(
-      patId,
-      deviceName,
-      deviceSala,
-      devicePredio,
-      deviceBattery
-    );
+    const result = await Device.createDevice(patId, deviceName, deviceSala, devicePredio, deviceBattery);
     res.send(result);
   } catch (err) {
     res.status(500).send(err.message);
@@ -98,8 +91,6 @@ const getHistory = async (req, res) => {
 };
 
 const getPrediosSalasEquipamentos = async (req, res) => {
-  //code here
-
   try {
     const result = await Device.getPrediosSalasEquipamentos();
     res.send(result);
@@ -112,6 +103,7 @@ const getSalas = async (req, res) => {
   const { number } = req.body;
 
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(400).json({
       error: errors.errors[0].msg,
@@ -125,7 +117,10 @@ const getSalas = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
+
 const getEquipamentoSala = async (req, res) => {
+  const { predio, sala } = req.body;
+
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -133,9 +128,28 @@ const getEquipamentoSala = async (req, res) => {
       error: errors.errors[0].msg,
     });
   }
-  const { predio, sala } = req.body;
+
   try {
     const result = await Device.getEquipamentoSala(predio, sala);
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const getInfosDevice = async (req, res) => {
+  const { patId } = req.params;
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      error: errors.errors[0].msg,
+    });
+  }
+
+  try {
+    const result = await Device.getInfosDevice(patId);
     res.send(result);
   } catch (err) {
     res.status(500).send(err.message);
@@ -152,4 +166,5 @@ module.exports = {
   getPredios,
   getSalas,
   getEquipamentoSala,
+  getInfosDevice
 };

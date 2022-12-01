@@ -21,19 +21,46 @@ router.post(
     [body("deviceBattery", "Bateria do Patrimonio é necessário").exists({ checkFalsy: true })],
     deviceController.createDevice
 );
-router.get("/getHistory", deviceController.getHistory);
+router.get(
+    "/getHistory",
+    [body("patId", "ID de Patrimonio é necessário").exists({ checkFalsy: true })],
+    deviceController.getHistory
+);
 
-router.get("/getPredioSalasEquipamentos",deviceController.getPrediosSalasEquipamentos);
+router.get(
+    "/getPredioSalasEquipamentos",
+    deviceController.getPrediosSalasEquipamentos
+);
 
 //Rota - equipamentos registrados
-router.get("/equipamentosRegistrados", deviceController.getEquipamentosRegistrados)
+router.get(
+    "/equipamentosRegistrados", 
+    deviceController.getEquipamentosRegistrados
+)
 
 // Rota - predios registrados
-router.get("/getPredios",deviceController.getPredios)
+router.get(
+    "/getPredios",
+    deviceController.getPredios
+)
 
-router.post("/getSalas",deviceController.getSalas)
+router.post(
+    "/getSalas",
+    [body("number", "Num. da sala é necessário").exists({ checkFalsy: true })],
+    deviceController.getSalas
+)
 
-router.post("/getEquipamentoSala", deviceController.getEquipamentoSala)
+router.post(
+    "/getEquipamentoSala", 
+    [body("predio", "Prédio é necessário").exists({ checkFalsy: true })],
+    [body("sala", "Sala é necessária").exists({ checkFalsy: true })],
+    deviceController.getEquipamentoSala)
+
+router.get(
+    "/infosDevice/:patId",
+    [param("patId", "ID de Patrimonio é necessário").exists({ checkFalsy: true })],
+    deviceController.getEquipamentoSala
+)
 
 //Exporta o ROUTER
 module.exports = router;
