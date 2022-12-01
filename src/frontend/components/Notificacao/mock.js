@@ -1,26 +1,34 @@
 const mock = [{
     id: 120,
-    tipo: "saiu do IPT" ,
+    tipo: "não está localizado no IPT" ,
 },
 {
     id: 948,
-    tipo: "com problema de conexão",
+    tipo: "apresenta problemas de conexão",
 },
 {
     id: 324,
-    tipo: "com bateria fraca",
+    tipo: "está com bateria fraca",
 },
 {
     id: 900,
-    tipo: "com problema de conexão",
+    tipo: "apresenta problemas de conexão",
 },
 {
     id: 412,
-    tipo: "saiu do IPT",
+    tipo: "não está localizado no IPT",
 },
 {
     id: 102,
-    tipo: "com bateria fraca",
+    tipo: "está com bateria fraca",
+},
+{
+    id: 577,
+    tipo: "não está localizado no IPT",
+},
+{
+    id: 239,
+    tipo: "apresenta problemas de conexão",
 },
 ]
 

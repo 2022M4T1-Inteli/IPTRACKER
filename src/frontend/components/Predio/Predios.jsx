@@ -26,7 +26,7 @@ function Predio({ }) {
                         <div className='flex gap-2 text-2xl items-center m-4'>
                             <Image src={cell} height={40} width={30}></Image>
                             <div className='text-ipt'>{element.quandidade}</div>
-                            <h1>Dispositivos</h1>
+                            <h1>dispositivos</h1>
                         </div>
 
                         <div className='text-2xl'>
