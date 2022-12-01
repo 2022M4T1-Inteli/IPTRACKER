@@ -52,7 +52,7 @@ class Device {
 
     let patrimonioId = content.patrimonioId;
 
-    let actualData = new Date();
+    let actualData = new Date().toUTCString();
 
     console.log(actualData);
 
@@ -69,7 +69,7 @@ class Device {
       device.sala = sala;
       device.predio = predio;
       const edit = JSON.parse(device.historico);
-      edit.push(`${sala}_${predio}`);
+      edit.push({'local': `${sala}_${predio}`, 'data': actualData});
       device.historico = JSON.stringify(edit);
 
       try {
