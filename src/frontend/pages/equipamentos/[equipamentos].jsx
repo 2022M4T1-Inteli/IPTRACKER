@@ -34,7 +34,7 @@ function equipamentos({ data }) {
     </div>
   );
 }
-export const getStaticProps = async ctx => {
+export const getServerSideProps = async ctx => {
   let data;
   equipamentos = ctx.params.equipamentos;
   const predioSala = String(equipamentos).split('_');

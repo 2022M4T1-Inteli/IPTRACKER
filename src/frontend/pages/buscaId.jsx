@@ -33,7 +33,7 @@ function BuscaId({ data }) {
   );
 }
 
-export const getStaticProps = async ctx => {
+export const getServerSideProps = async ctx => {
   let data;
   await axios
     .get('http://localhost:3001/Device/equipamentosRegistrados')
