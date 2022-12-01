@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 function Bateria({ data }) {
+  
   return (
     <div className="text-center">
       {' '}
@@ -38,7 +39,7 @@ function Bateria({ data }) {
     </div>
   );
 }
-export const getServerSideProps = async ctx => {
+export const getStaticProps = async ctx => {
   //{predios:,qnt:}
   let data;
   await axios

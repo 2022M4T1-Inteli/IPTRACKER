@@ -4,12 +4,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBattery,
   faBatteryThreeQuarters,
-  faBatteryQuarter
+  faBatteryQuarter,
+  faBatteryEmpty
 } from '@fortawesome/free-solid-svg-icons';
 //import Image from "./Icone-bateria-Png.png"
 import Link from 'next/link';
 
 function StatusdaBateria({ props }) {
+  function bat(element) {
+    let batery = element.batery;
+    if (batery => 75) {
+      return 'faBattery';
+    } else if (batery => 50) {
+      return 'faBatteryThreeQuarters';
+    } else if (batery => 25) {
+      return 'faBatteryQuarter';
+    } else {
+      return 'faBatteryEmpty';
+    }
+  }
   return (
     <div className="flex justify-center">
       <div className="grid  lg:grid-cols-3 lg:gap-20 md:grid-cols-1 justify-items-center lg:w-100 md:w-90 lg:pl-28">
@@ -33,10 +46,8 @@ function StatusdaBateria({ props }) {
 
             <div className="text-2xl text-center">
               <p>
-                <FontAwesomeIcon
-                  icon={faBatteryThreeQuarters}
-                ></FontAwesomeIcon>{' '}
-                - <span>{element.batery}</span>
+                <FontAwesomeIcon icon="faBatteryEmpty"></FontAwesomeIcon>-{' '}
+                <span>{element.batery}</span>
               </p>
             </div>
 
