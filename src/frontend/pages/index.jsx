@@ -1,7 +1,36 @@
+import React, {useEffect, useState} from 'react'
 import Button from '../components/Button'
 import styles from '../styles/Login.module.css'
+import axios from 'axios'
+import {useRouter} from 'next/router'
+import { setCookie } from 'cookies-next';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
+
+    const Router = useRouter()
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    
+    const Login = () => {
+        axios.post('http://localhost:3001/User/Login', 
+        {
+            email: email,
+            pass: password
+        }).then((response) => {
+            console.log(response)
+            toast.success("Login efetuado com sucesso!")
+            setCookie('token', response.data.token)
+            Router.push('/predios')
+        }).catch((error) => {
+            console.log(error)
+            toast.error(error.response.data)
+        })
+    }
+
     return(
         <div className='w-full flex  lg:flex-row justify-center h-screen items-center '>
             <div className='hidden lg:flex w-2/4 flex-col items-center gap-32'>
@@ -23,19 +52,22 @@ function Login() {
                     <div className='flex justify-center'>
                         <div className='flex flex-row items-center'>
                             <img src='/user-solid.svg' className='w-6 absolute ml-2'></img>
-                            <input type="text" placeholder='Usuário' className={styles.input}></input>
+                            <input type="text" placeholder='Email' className={styles.input} onChange={e => setEmail(e.target.value)}></input>
                         </div>
                     </div>
                     <div className='flex justify-center'>
                         <div className='flex flex-row items-center'>
                             <img src='/key-solid.svg' className='w-6 ml-2 absolute'></img>
-                            <input type="password" placeholder='Senha' className={styles.input}></input>
+                            <input type="password" placeholder='Senha' className={styles.input} onChange={e => setPassword(e.target.value)}></input>
                         </div>
                     </div>
-                    <Button ctn={"Continuar"}/>  
+                    <button className={styles.btn} onClick={() => {Login()}}>Continuar</button>
+                    {/* <Button ctn={"Continuar"}/>   */}
                 </div>
             </div>
+            <ToastContainer />
         </div>
+        
     )
 }
 

@@ -238,10 +238,20 @@
   dependencies:
     "tslib" "^2.4.0"
 
+"@types/cookie@^0.4.1":
+  "integrity" "sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q=="
+  "resolved" "https://registry.npmjs.org/@types/cookie/-/cookie-0.4.1.tgz"
+  "version" "0.4.1"
+
 "@types/json5@^0.0.29":
   "integrity" "sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ=="
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
+
+"@types/node@^16.10.2":
+  "integrity" "sha512-9qGjJ5GyShZjUfx2ArBIGM+xExdfLvvaCyQR0t6yRXKPcWCVYF/WemtX/uIU3r7FYECXRXkIiw2Vnhn6y8d+pw=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.18.4.tgz"
+  "version" "16.18.4"
 
 "@types/offscreencanvas@^2019.6.4":
   "integrity" "sha512-PGcyveRIpL1XIqK8eBsmRBt76eFgtzuPiSTyKHZxnGemp2yzGzWpjYKAfK3wIMiU7eH+851yEpiuP8JZerTmWg=="
@@ -394,9 +404,9 @@
     "color-convert" "^2.0.1"
 
 "anymatch@~3.1.2":
-  "integrity" "sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg=="
-  "resolved" "https://registry.npmjs.org/anymatch/-/anymatch-3.1.2.tgz"
-  "version" "3.1.2"
+  "integrity" "sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw=="
+  "resolved" "https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz"
+  "version" "3.1.3"
   dependencies:
     "normalize-path" "^3.0.0"
     "picomatch" "^2.0.4"
@@ -596,6 +606,11 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"clsx@^1.1.1":
+  "integrity" "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg=="
+  "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
+  "version" "1.2.1"
+
 "color-convert@^2.0.1":
   "integrity" "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ=="
   "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz"
@@ -619,6 +634,20 @@
   "integrity" "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
   "resolved" "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   "version" "0.0.1"
+
+"cookie@^0.4.0":
+  "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
+  "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
+  "version" "0.4.2"
+
+"cookies-next@^2.1.1":
+  "integrity" "sha512-AZGZPdL1hU3jCjN2UMJTGhLOYzNUN9Gm+v8BdptYIHUdwz397Et1p+sZRfvAl8pKnnmMdX2Pk9xDRKCGBum6GA=="
+  "resolved" "https://registry.npmjs.org/cookies-next/-/cookies-next-2.1.1.tgz"
+  "version" "2.1.1"
+  dependencies:
+    "@types/cookie" "^0.4.1"
+    "@types/node" "^16.10.2"
+    "cookie" "^0.4.0"
 
 "core-js-pure@^3.25.1":
   "integrity" "sha512-LiN6fylpVBVwT8twhhluD9TzXmZQQsr2I2eIKtWNbZI1XMfBT7CV18itaN6RA7EtQd/SDdRx/wzvAShX2HvhQA=="
@@ -1846,9 +1875,9 @@
     "postcss-selector-parser" "^6.0.10"
 
 "postcss-selector-parser@^6.0.10":
-  "integrity" "sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w=="
-  "resolved" "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz"
-  "version" "6.0.10"
+  "integrity" "sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g=="
+  "resolved" "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.11.tgz"
+  "version" "6.0.11"
   dependencies:
     "cssesc" "^3.0.0"
     "util-deprecate" "^1.0.2"
@@ -1922,7 +1951,7 @@
   dependencies:
     "prop-types" "^15.6.0"
 
-"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>=16.13", "react-dom@>=18.0", "react-dom@18.2.0":
+"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>=16", "react-dom@>=16.13", "react-dom@>=18.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -1948,6 +1977,13 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.21.0"
 
+"react-toastify@^9.1.1":
+  "integrity" "sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw=="
+  "resolved" "https://registry.npmjs.org/react-toastify/-/react-toastify-9.1.1.tgz"
+  "version" "9.1.1"
+  dependencies:
+    "clsx" "^1.1.1"
+
 "react-use-measure@^2.1.1":
   "integrity" "sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig=="
   "resolved" "https://registry.npmjs.org/react-use-measure/-/react-use-measure-2.1.1.tgz"
@@ -1955,7 +1991,7 @@
   dependencies:
     "debounce" "^1.2.1"
 
-"react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.13", "react@>=16.3", "react@>=16.8", "react@>=17.0", "react@>=18.0", "react@18.2.0":
+"react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.13", "react@>=16.3", "react@>=16.8", "react@>=17.0", "react@>=18.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -2196,7 +2232,7 @@
 
 "tailwindcss@^3.2.4":
   "integrity" "sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ=="
-  "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.1.tgz"
+  "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.4.tgz"
   "version" "3.2.4"
   dependencies:
     "arg" "^5.0.2"
@@ -2213,7 +2249,7 @@
     "normalize-path" "^3.0.0"
     "object-hash" "^3.0.0"
     "picocolors" "^1.0.0"
-    "postcss" "^8.4.17"
+    "postcss" "^8.4.18"
     "postcss-import" "^14.1.0"
     "postcss-js" "^4.0.0"
     "postcss-load-config" "^3.1.4"

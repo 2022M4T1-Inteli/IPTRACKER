@@ -5,7 +5,10 @@ let newSSIDs = { ssid: [], rssi: [] };
 
 async function getRoom(array) {
   if (array.ssid == "" || array.rssi == "") {
-    throw new Error("Sem salas por perto");
+    return {
+      room: 404,
+      building: 404,
+    }
   }
 
   array.ssid.map(async (each, index) => {
@@ -49,6 +52,10 @@ class Device {
 
     let patrimonioId = content.patrimonioId;
 
+    let actualData = new Date();
+
+    console.log(actualData);
+
     try {
       const { room, building } = await getRoom(content);
       sala = room;
@@ -58,10 +65,7 @@ class Device {
     }
 
     try {
-      console.log(patrimonioId);
       const device = await Patrimonio.findOne({ patrimonioId: patrimonioId });
-      console.log(sala);
-      console.log(predio);
       device.sala = sala;
       device.predio = predio;
       const edit = JSON.parse(device.historico);
@@ -83,8 +87,8 @@ class Device {
   async pegarTodos() {
     try {
       return await Patrimonio.find();
-    } catch (error) {
-      throw new ERROR("erro ao pegar todos");
+    } catch (err) {
+      throw new Error(err);
     }
   }
 
@@ -152,6 +156,7 @@ class Device {
       throw new Error("Erro ao buscar as informações no banco de dados");
     }
   }
+  
   async getEquipamentoSala(predio, sala) {
     try {
       const result = await Patrimonio.find({ sala: sala, predio: predio });

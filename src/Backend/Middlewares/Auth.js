@@ -25,9 +25,7 @@ const unsureAuthenticated = (req, res, next) => {
         return next();
     } catch(err) {
         //Retorna o erro caso o token não seja válido
-        res.status(401).json({
-            message: "Token não é válido"
-        })
+        res.status(401).send("Usuário não autenticado");
         return
     }
 }

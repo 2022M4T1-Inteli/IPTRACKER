@@ -2,6 +2,7 @@ import Predio from "../components/Predio/Predios"
 import styles from '../styles/Predios.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass, faHouse } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 function Predios() {
     return (
@@ -17,5 +18,22 @@ function Predios() {
         </div>
     )
 }
+
+export const getServerSideProps = async (ctx) => {
+    let cookieToken = ctx.req.cookies['token'];
+
+    await axios.get(`http://localhost:3001/User/Infos`, 
+    {
+        headers: {'Authorization': `Bearer ${cookieToken}`}
+    }).then((response) => {
+    }).catch((error) => {
+        ctx.res.writeHead(302, {
+            Location: '/'
+        })
+        ctx.res.end()
+    })
+    
+    return { props: {} };
+};
 
 export default Predios
