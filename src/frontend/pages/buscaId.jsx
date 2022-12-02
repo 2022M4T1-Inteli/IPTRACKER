@@ -8,6 +8,31 @@ import stylePredio from '../styles/Predios.module.css';
 import axios from 'axios';
 
 function BuscaId({ data }) {
+  const [text, setText] = useState('');
+  const [datas, setData] = useState([]);
+
+  async function chamadaDB() {
+    
+    setData(data);
+  }
+
+  useEffect(() => {
+    chamadaDB();
+  }, []);
+
+  const handleOnChange = event => {
+    let inputValue = event.target.value;
+
+    if (inputValue) {
+      setText(inputValue);
+      chamadaDB();
+      setData(datas.filter(e => e.patrimonioId.includes(inputValue)));
+    } else {
+      setText('');
+      chamadaDB();
+    }
+  };
+
   return (
     <div className="text-center">
       <div className="flex justify-center text-center ml-28">
@@ -23,12 +48,13 @@ function BuscaId({ data }) {
         ></FontAwesomeIcon>
         <input
           type="text"
+          onChange={handleOnChange}
           className={stylePredio.input}
           placeholder="Digite o ID!"
         />
       </div>
 
-      <Cards mock={data} />
+      <Cards mock={datas} />
     </div>
   );
 }

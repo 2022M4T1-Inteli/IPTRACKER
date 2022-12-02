@@ -5,8 +5,34 @@ import { faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import stylePredio from '../../styles/Predios.module.css';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 function equipamentos({ data }) {
+  const [text, setText] = useState('');
+  const [datas, setData] = useState([]);
+
+  async function chamadaDB() {
+    setData(data);
+  }
+
+  useEffect(() => {
+    chamadaDB();
+  }, []);
+
+  const handleOnChange = event => {
+    let inputValue = event.target.value;
+
+    if (inputValue) {
+      setText(inputValue);
+      chamadaDB();
+      console.log(String(datas[0]));
+      setData(datas.filter(e => String(e.patrimonioId).includes(inputValue)));
+    } else {
+      setText('');
+      chamadaDB();
+    }
+  };
+
   return (
     <div className="text-center mt-5">
       <h1 className="Montserrat font-bold text-2xl">Equipamentos</h1>
@@ -18,6 +44,7 @@ function equipamentos({ data }) {
           ></FontAwesomeIcon>
           <input
             type="text"
+            onChange={handleOnChange}
             className={stylePredio.inputSala}
             placeholder="Digite a sala que deseja"
           />
@@ -25,7 +52,7 @@ function equipamentos({ data }) {
       </div>
       <div className="flex justify-center">
         <div className="w-3/4">
-          <ContainerEquipamentos props={data}></ContainerEquipamentos>
+          <ContainerEquipamentos props={datas}></ContainerEquipamentos>
         </div>
       </div>
       {/* <button id={styles.margin} className="bg-transparent border-2 rounded-full border-cyan-600 w-10 hover:bg-cyan-400 hover:border-transparent">

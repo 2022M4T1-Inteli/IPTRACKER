@@ -8,7 +8,7 @@ async function getRoom(array) {
     return {
       room: 404,
       building: 404,
-    }
+    };
   }
 
   array.ssid.map(async (each, index) => {
@@ -69,7 +69,7 @@ class Device {
       device.sala = sala;
       device.predio = predio;
       const edit = JSON.parse(device.historico);
-      edit.push({'local': `${sala}_${predio}`, 'data': actualData});
+      edit.push({ local: `${sala}_${predio}`, data: actualData });
       device.historico = JSON.stringify(edit);
 
       try {
@@ -144,29 +144,29 @@ class Device {
     const result = await Patrimonio.find().distinct("predio");
 
     async function getQnts() {
-      for(let i = 0; i < result.length; i++) {
-        let qnt = []
+      for (let i = 0; i < result.length; i++) {
+        let qnt = [];
         try {
-          qnt = await Patrimonio.find({predio: result[i]})
+          qnt = await Patrimonio.find({ predio: result[i] });
         } catch {
-          throw new Error("Não foi possível verificar a quantidade")
+          throw new Error("Não foi possível verificar a quantidade");
         }
 
         const teste = {
-          'predio': result[i],
-          'qnt': qnt.length
-        }
+          predio: result[i],
+          qnt: qnt.length,
+        };
 
-        predios.push(teste)
+        predios.push(teste);
       }
     }
 
     try {
       await getQnts();
-    } catch (err){
-      throw new Error(err)
+    } catch (err) {
+      throw new Error(err);
     }
-    
+
     return predios;
   }
 
@@ -178,7 +178,7 @@ class Device {
       throw new Error("Erro ao buscar as informações no banco de dados");
     }
   }
-  
+
   async getEquipamentoSala(predio, sala) {
     try {
       const result = await Patrimonio.find({ sala: sala, predio: predio });
@@ -189,14 +189,13 @@ class Device {
   }
 
   async getInfosDevice(patId) {
-    try{
+    try {
       const device = await Patrimonio.findOne({ patrimonioId: patId });
       return device;
-    }catch{
+    } catch {
       throw new Error("Erro ao buscar as informações no banco de dados");
     }
-
-}
+  }
 }
 
 module.exports = {

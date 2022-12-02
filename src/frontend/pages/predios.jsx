@@ -3,8 +3,33 @@ import styles from '../styles/Predios.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHouse } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function Predios({ data }) {
+  const [text, setText] = useState('');
+  const [datas, setData] = useState([]);
+
+  async function chamadaDB() {
+    setData(data);
+  }
+
+  useEffect(() => {
+    chamadaDB();
+  }, []);
+
+  const handleOnChange = event => {
+    let inputValue = event.target.value;
+
+    if (inputValue) {
+      setText(inputValue);
+      chamadaDB();
+      console.log(String(datas[1].predio));
+      setData(datas.filter(e => String(e.predio).includes(inputValue)));
+    } else {
+      setText('');
+      chamadaDB();
+    }
+  };
 
   return (
     <div className="text-center justify-center ">
@@ -19,11 +44,12 @@ function Predios({ data }) {
         <input
           type="text"
           className={styles.input}
+          onChange={handleOnChange}
           placeholder="Digite o número do prédio"
         />
       </div>
       <div>
-        <Predio props={data} />
+        <Predio props={datas} />
       </div>
     </div>
   );
