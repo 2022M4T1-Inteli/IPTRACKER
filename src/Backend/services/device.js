@@ -92,14 +92,14 @@ class Device {
     }
   }
 
-  async createDevice(
-    patID,
-    deviceName,
-    deviceSala,
-    devicePredio,
-    deviceBattery
-  ) {
+  async createDevice(patID, deviceName, deviceSala, devicePredio, deviceBattery) {
     const actualData = new Date().toUTCString();
+
+    const alreadyExist = await Patrimonio.findOne({ patrimonioId: patID });
+
+    if (alreadyExist.length > 0) {
+      throw new Error("Dispositivo com esse patrimonio já cadastrado");
+    }
 
     const device = new Patrimonio({
       patrimonioId: patID,
