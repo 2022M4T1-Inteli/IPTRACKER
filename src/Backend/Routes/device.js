@@ -21,7 +21,7 @@ router.post(
     [body("deviceBattery", "Bateria do Patrimonio é necessário").exists({ checkFalsy: true })],
     deviceController.createDevice
 );
-router.get(
+router.post(
     "/getHistory",
     [body("patId", "ID de Patrimonio é necessário").exists({ checkFalsy: true })],
     deviceController.getHistory

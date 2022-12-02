@@ -5,8 +5,11 @@ import axios from 'axios'
 import {useRouter} from 'next/router'
 import { setCookie } from 'cookies-next';
 
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function Login() {
 
@@ -16,7 +19,7 @@ function Login() {
     const [password, setPassword] = useState('')
     
     const Login = () => {
-        axios.post('http://localhost:3001/User/Login', 
+        axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Login`, 
         {
             email: email,
             pass: password
@@ -24,7 +27,7 @@ function Login() {
             console.log(response)
             toast.success("Login efetuado com sucesso!")
             setCookie('token', response.data.token)
-            Router.push('/predios')
+            Router.push('/opcoes')
         }).catch((error) => {
             console.log(error)
             toast.error(error.response.data)

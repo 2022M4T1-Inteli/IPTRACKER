@@ -44,7 +44,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/Device/createDevice",
+							"raw": "${process.env.next_public_url_sandbox}/Device/createDevice",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -82,7 +82,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/Device/getEquipamentoSala",
+							"raw": "${process.env.next_public_url_sandbox}/Device/getEquipamentoSala",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -115,7 +115,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/Device/getSalas",
+							"raw": "${process.env.next_public_url_sandbox}/Device/getSalas",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -142,7 +142,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost:3001/Device/getPredios",
+							"raw": "${process.env.next_public_url_sandbox}/Device/getPredios",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -162,7 +162,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/Device/equipamentosRegistrados",
+							"raw": "${process.env.next_public_url_sandbox}/Device/equipamentosRegistrados",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -195,7 +195,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/Device/getHistory",
+							"raw": "${process.env.next_public_url_sandbox}/Device/getHistory",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -240,7 +240,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/User/Register",
+							"raw": "${process.env.next_public_url_sandbox}/User/Register",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -281,7 +281,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/User/Login",
+							"raw": "${process.env.next_public_url_sandbox}/User/Login",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -327,7 +327,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "http://localhost:3001/User/Login",
+								"value": "${process.env.next_public_url_sandbox}/User/Login",
 								"type": "default",
 								"disabled": true
 							}
@@ -344,7 +344,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3001/User/Infos",
+							"raw": "${process.env.next_public_url_sandbox}/User/Infos",
 							"protocol": "http",
 							"host": [
 								"localhost"

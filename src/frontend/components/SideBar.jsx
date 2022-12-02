@@ -63,7 +63,7 @@ function SideBar() {
               )}
             </div>
           </div>
-          <Link href="/" className="">
+          <Link href="/opcoes" className="">
             <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer ">
               <div>
                 <button className="w-full h-full bg-transparent">
@@ -166,7 +166,7 @@ function SideBar() {
             </Link>
           </div>
           <div className="flex justify-center items-center h-3/4 w-12 ml-8 bg-ipt hover:bg-white rounded-2xl">
-            <Link href="/">
+            <Link href="/opcoes">
               <button className="w-full h-full bg-transparent">
                 <FontAwesomeIcon icon={faHouse} size="xl" />
               </button>

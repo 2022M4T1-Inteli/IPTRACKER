@@ -45,10 +45,10 @@ function StatusdaBateria({ props }) {
             </div>
 
             <div className="text-2xl text-center">
-              <p>
-                <FontAwesomeIcon icon="faBatteryEmpty"></FontAwesomeIcon>-{' '}
-                <span>{element.batery}</span>
-              </p>
+              <div className='flex justify-center gap-2 items-center'>
+                <FontAwesomeIcon icon={faBatteryEmpty}></FontAwesomeIcon> 
+                <span>{element.batery} %</span>
+              </div>
             </div>
 
             <div className="flex justify-center">

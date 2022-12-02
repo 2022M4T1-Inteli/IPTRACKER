@@ -10,15 +10,15 @@ function Opcoes() {
     return (
         <div className="text-center justify-center flex">
             <div className={styles.middle}>
-                <h1 className="text-xl">Escolha o tipo preferido de busca!</h1>
-                <br/>
-                <div>
+                <h1 className="text-xl Montserrat">Escolha o tipo preferido de busca!</h1>
+                
+                <div className="mt-24">
                     <Link href="/buscaId">
                         <button className={styles.button}>BUSCA POR ID</button>
                     </Link>
                 </div>
-                <hr className="w-10"/>
-                <div>
+               
+                <div className="mt-12">
                     <Link href="/predios">
                     <button className={styles.button}>BUSCA POR PRÉDIO</button>
                     </Link>

@@ -79,7 +79,7 @@ export const getStaticProps = async ctx => {
   let equipamentos = ctx.params.equipamentos;
   const predioSala = String(equipamentos).split('_');
   await axios
-    .post('http://localhost:3001/Device/getEquipamentoSala', {
+    .post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getEquipamentoSala`, {
       predio: predioSala[1],
       sala: predioSala[0]
     })

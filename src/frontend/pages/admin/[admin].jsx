@@ -2,16 +2,17 @@ import ESP32 from "../../components/ESP32"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios"
+import Historico from "../../components/Historico/Historico";
 
 
 
 
-function admin({data}) {
+function admin({ data, history }) {
 
 
     function callBuzzer() {
         console.log("callBuzzer");
-        axios.get(`http://localhost:3001/Buzzer/ligar/${data.patrimonioId}`).then(res => {
+        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Buzzer/ligar/${data.patrimonioId}`).then(res => {
             console.log(res)
         });
         document.getElementById("btnAccept").style.display = "none";
@@ -20,13 +21,16 @@ function admin({data}) {
 
     function cancelBuzzer() {
         console.log("cancelBuzzer");
-        axios.get(`http://localhost:3001/Buzzer/desligar/${data.patrimonioId}`).then(res => {
+        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Buzzer/desligar/${data.patrimonioId}`).then(res => {
             console.log(res)
         });
         document.getElementById("btnCancel").style.display = "none";
         document.getElementById("btnAccept").style.display = "flex";
     }
+
     
+
+
     return (
         <div>
             <div>
@@ -71,48 +75,8 @@ function admin({data}) {
                             <button className="w-full bg-red-btn hover:bg-red-600 h-12 rounded-xl font-bold Montserrat transition duration-300" onClick={() => { cancelBuzzer() }}>Cancele o chamado do equipamento</button>
                         </div>
                         <h1 className="Montserrat font-bold text-ipt text-xl">Histórico</h1>
-                        <div className="flex flex-wrap gap-6 w-5/6 mb-6 justify-center items-center">
-                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-green-btn">
-                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
-                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
-                                <div className="flex flex-col mr-2">
-                                    <h1 className="Montserrat font-bold">P1</h1>
-                                    <h1 className="Montserrat font-bold">S4</h1>
-                                </div>
-                            </div>
-                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-red-btn">
-                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
-                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
-                                <div className="flex flex-col mr-2">
-                                    <h1 className="Montserrat font-bold">P1</h1>
-                                    <h1 className="Montserrat font-bold">S4</h1>
-                                </div>
-                            </div>
-                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-green-btn">
-                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
-                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
-                                <div className="flex flex-col mr-2">
-                                    <h1 className="Montserrat font-bold">P1</h1>
-                                    <h1 className="Montserrat font-bold">S4</h1>
-                                </div>
-                            </div>
-                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-red-btn">
-                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
-                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
-                                <div className="flex flex-col mr-2">
-                                    <h1 className="Montserrat font-bold">P1</h1>
-                                    <h1 className="Montserrat font-bold">S4</h1>
-                                </div>
-                            </div>
-                            <div className="w-full sm:w-5/12 flex flex-row justify-between items-center h-16 bg-gray-200 rounded-xl border-l-8 border-green-btn">
-                                <h1 className="ml-2 Montserrat font-bold">1 FEV</h1>
-                                <h1 className="Montserrat font-bold text-xl">20:30</h1>
-                                <div className="flex flex-col mr-2">
-                                    <h1 className="Montserrat font-bold">P1</h1>
-                                    <h1 className="Montserrat font-bold">S4</h1>
-                                </div>
-                            </div>
-                        </div>
+                        {history.length != 0 ? <Historico history={history}/> : <p>Teste</p>}
+                        
                     </div>
 
                 </div>
@@ -124,12 +88,25 @@ function admin({data}) {
 
 export const getServerSideProps = async ctx => {
     let data;
+    let history
     admin = ctx.params.admin
-    await axios.get(`http://localhost:3001/Device/infosDevice/${admin}`).then(result => {
+    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/infosDevice/${admin}`).then(result => {
         data = result.data
+    }).catch(ele => {
+        console.log(ele)
     })
-    return {props:{data}}
-    
+
+    await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getHistory`, {
+        patId: admin
+    }).then(result => {
+        console.log(result.data)
+        history = result.data.reverse()
+    }).catch(ele => {
+        console.log(ele)
+    })
+
+    return { props: { data, history } }
+
 }
 
 export default admin

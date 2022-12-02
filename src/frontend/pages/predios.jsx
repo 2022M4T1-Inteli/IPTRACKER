@@ -65,7 +65,7 @@ export const getServerSideProps = async ctx => {
   let cookieToken = ctx.req.cookies['token'];
   //{predios:,qnt:}
   await axios
-    .get(`http://localhost:3001/User/Infos`, {
+    .get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
       headers: { Authorization: `Bearer ${cookieToken}` }
     })
     .then(response => {})
@@ -77,7 +77,7 @@ export const getServerSideProps = async ctx => {
     });
 
   let data;
-  await axios.get('http://localhost:3001/Device/getPredios').then(response => {
+  await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getPredios`).then(response => {
     data = response.data;
   });
 

@@ -68,7 +68,7 @@ function BuscaId({ data }) {
 export const getStaticProps = async ctx => {
   let data;
   await axios
-    .get('http://localhost:3001/Device/equipamentosRegistrados')
+    .get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/equipamentosRegistrados`)
     .then(response => {
       data = response.data;
     });
