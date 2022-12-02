@@ -34,9 +34,16 @@ function equipamentos({ data }) {
     </div>
   );
 }
+export const getStaticPaths = async () => {
+  return {
+    paths: [], //indicates that no page needs be created at build time
+    fallback: 'blocking' //indicates the type of fallback
+  };
+};
+
 export const getStaticProps = async ctx => {
   let data;
-  equipamentos = ctx.params.equipamentos;
+  let equipamentos = ctx.params.equipamentos;
   const predioSala = String(equipamentos).split('_');
   await axios
     .post('http://localhost:3001/Device/getEquipamentoSala', {
