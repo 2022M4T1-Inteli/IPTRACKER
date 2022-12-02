@@ -63,18 +63,15 @@ function Predios({ data }) {
 
 export const getServerSideProps = async ctx => {
   let cookieToken = ctx.req.cookies['token'];
-  //{predios:,qnt:}
-  await axios
-    .get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
-      headers: { Authorization: `Bearer ${cookieToken}` }
-    })
-    .then(response => {})
-    .catch(error => {
-      ctx.res.writeHead(302, {
-        Location: '/'
-      });
-      ctx.res.end();
+
+  await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+    headers: { Authorization: `Bearer ${cookieToken}` }
+  }).then(response => {}).catch(error => {
+    ctx.res.writeHead(302, {
+      Location: '/'
     });
+    ctx.res.end();
+  });
 
   let data;
   await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getPredios`).then(response => {

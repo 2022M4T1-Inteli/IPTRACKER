@@ -24,4 +24,19 @@ function Notificacoes() {
     )
 }
 
+export const getServerSideProps = async (ctx) => {
+    let cookieToken = ctx.req.cookies['token'];
+
+    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+        headers: { Authorization: `Bearer ${cookieToken}` }
+    }).then(response => {}).catch(error => {
+        ctx.res.writeHead(302, {
+        Location: '/'
+        });
+        ctx.res.end();
+    });
+
+    return {props: {}};
+}
+
 export default Notificacoes

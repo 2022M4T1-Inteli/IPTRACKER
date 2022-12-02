@@ -87,6 +87,17 @@ function admin({ data, history }) {
 }
 
 export const getServerSideProps = async ctx => {
+    let cookieToken = ctx.req.cookies['token'];
+
+    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+        headers: { Authorization: `Bearer ${cookieToken}` }
+    }).then(response => {}).catch(error => {
+        ctx.res.writeHead(302, {
+        Location: '/'
+        });
+        ctx.res.end();
+    });
+
     let data;
     let history
     admin = ctx.params.admin
@@ -99,14 +110,16 @@ export const getServerSideProps = async ctx => {
     await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getHistory`, {
         patId: admin
     }).then(result => {
-        console.log(result.data)
-        history = result.data.reverse()
-    }).catch(ele => {
-        console.log(ele)
-    })
+        // if(result.data.length > 0){
+        //     console.log(result.data.length)
+        //     history = result.data
+        // } else {
+        //     history = []
+        // }
+        history = result.data
+    }).catch({})
 
     return { props: { data, history } }
-
 }
 
 export default admin
