@@ -1,26 +1,18 @@
 import Link from "next/link"
-import { useEffect } from "react";
-import { useState } from "react"
 
 function EquipamentosBloco({ nome, ID, link, status }) {
 
-    const [statusDispositivo, setStatusDispositivo] = useState("sky");
-    const [colorStatus, setColorStatus] = useState({animate:"400",ball:"500"})
-
-    useEffect(() => {
-        if (status === false) {
-            setStatusDispositivo("red")
-            setColorStatus({animate:"600",ball:"700"})
-            
-        }else{
-            setStatusDispositivo("sky")
-            setColorStatus({animate:"400",ball:"500"})
-        }
-    },[])
-
-
     return (
-        <div className=" rounded border-2 border-black w-56 h-44 p-2">
+        <div className="flex flex-col rounded-lg border-2 border-black w-80 shadow-md lg:mb-0 mb-4 items-center">
+
+            <div className="flex  m-4 rounded-md bg-ipt w-24 p-2 text-white items-center justify-center">
+                <p className="ml-2 text-2xl ">ID: {ID}</p>
+            </div>
+
+            <div className="flex flex-col gap-2 text-2xl items-center justify-center m-4">
+                <h1>Predio - {element.predio}</h1>
+                <h1>Sala - {element.sala}</h1>
+            </div>
 
             <div className="mt-5">
                 <h1><span className="font-bold">Nome:</span> {nome}</h1>

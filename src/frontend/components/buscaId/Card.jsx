@@ -29,7 +29,7 @@ function Card({ mock }) {
 
             <div className="flex justify-center">
               <Link href={`/admin/${element.patrimonioId}`}>
-                <button className="bg-green-500 hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2 hover:bg-green-400">
+                <button className="bg-blue-500 hover:scale-125 duration-200 rounded-lg mt-4  mb-4 p-2 hover:bg-blue-400">
                   Ver detalhes
                 </button>
               </Link>
