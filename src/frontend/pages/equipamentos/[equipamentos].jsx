@@ -23,12 +23,18 @@ function equipamentos({ data }) {
     let inputValue = event.target.value;
 
     if (inputValue) {
-      setText(inputValue);
-      chamadaDB();
-      console.log(String(datas[0]));
-      setData(datas.filter(e => String(e.patrimonioId).includes(inputValue)));
+      if (text > inputValue.length) {
+        setData(data);
+        setData(data.filter(e => String(e.patrimonioId).includes(inputValue)));
+        setText(text - 1);
+      } else {
+        setText(text + 1);
+        setData(datas.filter(e => String(e.patrimonioId).includes(inputValue)));
+      }
+
+      setText(inputValue.length);
     } else {
-      setText('');
+      setText(0);
       chamadaDB();
     }
   };

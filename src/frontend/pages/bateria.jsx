@@ -8,10 +8,40 @@ import {
 //import Image from "./Icone-bateria-Png.png"
 import Link from 'next/link';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Bateria({ data }) {
-  
+  const [text, setText] = useState(0);
+  const [datas, setData] = useState([]);
+
+  async function chamadaDB() {
+    setData(data);
+  }
+
+  useEffect(() => {
+    chamadaDB();
+  }, []);
+
+  const handleOnChange = event => {
+    let inputValue = event.target.value;
+
+    if (inputValue) {
+      if (text > inputValue.length) {
+        setData(data);
+        setData(data.filter(e => String(e.patrimonioId).includes(inputValue)));
+        setText(text - 1);
+      } else {
+        setText(text + 1);
+        setData(datas.filter(e => String(e.patrimonioId).includes(inputValue)));
+      }
+
+      setText(inputValue.length);
+    } else {
+      setText(0);
+      chamadaDB();
+    }
+  };
+
   return (
     <div className="text-center">
       {' '}
@@ -26,13 +56,14 @@ function Bateria({ data }) {
         ></FontAwesomeIcon>
         <input
           type="text"
+          onChange={handleOnChange}
           className={styles.input}
           placeholder="Digite o número do prédio"
         />
       </div>
       <div className="flex justify-center">
         <div>
-          <StatusdaBateria props={data} />
+          <StatusdaBateria props={datas} />
         </div>
       </div>
       <div></div>
