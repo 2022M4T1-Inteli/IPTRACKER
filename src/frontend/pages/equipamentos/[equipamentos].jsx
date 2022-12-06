@@ -1,18 +1,31 @@
-import Link from 'next/link';
 import ContainerEquipamentos from '../../components/ContainerEquipamentos/ContainerEquipamentos';
-
-import { faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import stylePredio from '../../styles/Predios.module.css';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function equipamentos({ data }) {
+import { useRouter } from 'next/router';
+
+function equipamentos() {
+
+
+
   const [text, setText] = useState('');
   const [datas, setData] = useState([]);
 
+  const router = useRouter()
+  const { equipamentos } = router.query
+
   async function chamadaDB() {
-    setData(data);
+
+    const predioSala = String(equipamentos).split('_');
+    await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getEquipamentoSala`, {
+      predio: predioSala[1],
+      sala: predioSala[0]
+    }).then(response => {
+      setData(response.data);
+    });
   }
 
   useEffect(() => {
@@ -24,8 +37,7 @@ function equipamentos({ data }) {
 
     if (inputValue) {
       if (text > inputValue.length) {
-        setData(data);
-        setData(data.filter(e => String(e.patrimonioId).includes(inputValue)));
+        setData(datas.filter(e => String(e.patrimonioId).includes(inputValue)));
         setText(text - 1);
       } else {
         setText(text + 1);
@@ -38,6 +50,16 @@ function equipamentos({ data }) {
       chamadaDB();
     }
   };
+
+  if (datas.length == 0 & text == '') {
+    return (
+      <div className='flex justify-center'>
+        <div className='flex justify-center mt-80 bg-ipt w-96 h-32 items-center text-2xl'>
+          <h1 className='text-white'>Carregando....</h1>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="text-center mt-5">
@@ -61,30 +83,10 @@ function equipamentos({ data }) {
           <ContainerEquipamentos props={datas}></ContainerEquipamentos>
         </div>
       </div>
-      {/* <button id={styles.margin} className="bg-transparent border-2 rounded-full border-cyan-600 w-10 hover:bg-cyan-400 hover:border-transparent">
-            <Link href="/salas"><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon></Link>
-        </button> */}
+
     </div>
   );
 }
-export const getStaticPaths = async () => {
-  return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: 'blocking' //indicates the type of fallback
-  };
-};
 
-export const getStaticProps = async ctx => {
-  let data;
-  let equipamentos = ctx.params.equipamentos;
-  const predioSala = String(equipamentos).split('_');
-  await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getEquipamentoSala`, {
-    predio: predioSala[1],
-    sala: predioSala[0]
-  }).then(response => {
-    data = response.data;
-  });
-  return { props: { data } };
-};
 
 export default equipamentos;

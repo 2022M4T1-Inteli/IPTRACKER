@@ -3,11 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios"
 import Historico from "../../components/Historico/Historico";
+import { useEffect, useState } from "react";
+
+import { useRouter } from "next/router";
 
 
 
 
-function admin({ data, history }) {
+function admin() {
+
+    const [data, setData] = useState([])
+    const [history, setHistory] = useState([])
+
+    const router = useRouter()
+    const { admin } = router.query
 
 
     function callBuzzer() {
@@ -28,13 +37,30 @@ function admin({ data, history }) {
         document.getElementById("btnAccept").style.display = "flex";
     }
 
-    
+    async function requesi() {
+
+        await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/infosDevice/${admin}`).then(result => {
+            setData(result.data)
+        })
+
+        await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getHistory`, {
+            patId: admin
+        }).then(result => {
+            setHistory(result.data.reverse())
+        })
+
+    }
+
+    useEffect(() => {
+        requesi()
+    }, [])
+
+
 
 
     return (
         <div>
             <div>
-
                 <div className="absolute w-full sm:w-5/6 top-28 left-0 sm:top-12 sm:left-56">
                     <div className="flex flex-col w-full gap-6 justify-center items-center">
                         <div className="flex w-full justify-center items-center">
@@ -75,8 +101,8 @@ function admin({ data, history }) {
                             <button className="w-full bg-red-btn hover:bg-red-600 h-12 rounded-xl font-bold Montserrat transition duration-300" onClick={() => { cancelBuzzer() }}>Cancele o chamado do equipamento</button>
                         </div>
                         <h1 className="Montserrat font-bold text-ipt text-xl">Histórico</h1>
-                        {history.length != 0 ? <Historico history={history}/> : <p>Teste</p>}
-                        
+                        {history.length != 0 ? <Historico history={history} /> : <p>Teste</p>}
+
                     </div>
 
                 </div>
@@ -84,42 +110,6 @@ function admin({ data, history }) {
 
         </div>
     )
-}
-
-export const getServerSideProps = async ctx => {
-    let cookieToken = ctx.req.cookies['token'];
-
-    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
-        headers: { Authorization: `Bearer ${cookieToken}` }
-    }).then(response => {}).catch(error => {
-        ctx.res.writeHead(302, {
-        Location: '/'
-        });
-        ctx.res.end();
-    });
-
-    let data;
-    let history
-    admin = ctx.params.admin
-    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/infosDevice/${admin}`).then(result => {
-        data = result.data
-    }).catch(ele => {
-        console.log(ele)
-    })
-
-    await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getHistory`, {
-        patId: admin
-    }).then(result => {
-        // if(result.data.length > 0){
-        //     console.log(result.data.length)
-        //     history = result.data
-        // } else {
-        //     history = []
-        // }
-        history = result.data
-    }).catch({})
-
-    return { props: { data, history } }
 }
 
 export default admin

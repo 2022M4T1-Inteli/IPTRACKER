@@ -5,12 +5,14 @@ import { faMagnifyingGlass, faHouse } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-function Predios({ data }) {
+function Predios() {
   const [text, setText] = useState('');
   const [datas, setData] = useState([]);
 
   async function chamadaDB() {
-    setData(data);
+    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getPredios`).then(response => {
+      setData(response.data)
+    });
   }
 
   useEffect(() => {
@@ -22,8 +24,7 @@ function Predios({ data }) {
 
     if (inputValue) {
       if (text > inputValue.length) {
-        setData(data);
-        setData(data.filter(e => String(e.predio).includes(inputValue)));
+        setData(datas.filter(e => String(e.predio).includes(inputValue)));
         setText(text - 1);
       } else {
         setText(text + 1);
@@ -73,16 +74,7 @@ export const getServerSideProps = async ctx => {
     ctx.res.end();
   });
 
-  let data;
-  await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getPredios`).then(response => {
-    data = response.data;
-  });
-
-  return {
-    props: {
-      data
-    }
-  };
+  return { props: {} };
 };
 
 export default Predios;
