@@ -101,7 +101,7 @@ function admin() {
                             <button className="w-full bg-red-btn hover:bg-red-600 h-12 rounded-xl font-bold Montserrat transition duration-300" onClick={() => { cancelBuzzer() }}>Cancele o chamado do equipamento</button>
                         </div>
                         <h1 className="Montserrat font-bold text-ipt text-xl">Histórico</h1>
-                        {history.length != 0 ? <Historico history={history} /> : <p>Teste</p>}
+                        {history.length != 0 ? <Historico history={history} /> : <p>Sem historico registrado ....</p>}
 
                     </div>
 
@@ -111,5 +111,20 @@ function admin() {
         </div>
     )
 }
+
+export const getServerSideProps = async ctx => {
+    let cookieToken = ctx.req.cookies['token'];
+  
+    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+      headers: { Authorization: `Bearer ${cookieToken}` }
+    }).then(response => {}).catch(error => {
+      ctx.res.writeHead(302, {
+        Location: '/'
+      });
+      ctx.res.end();
+    });
+  
+    return { props: {} };
+  };
 
 export default admin

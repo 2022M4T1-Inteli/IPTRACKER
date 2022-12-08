@@ -38,6 +38,16 @@ function Predios() {
     }
   };
 
+  if (datas.length == 0 & text == '') {
+    return (
+      <div className='flex justify-center'>
+        <div className='flex justify-center mt-80 bg-ipt w-96 h-32 items-center text-2xl'>
+          <h1 className='text-white'>Carregando....</h1>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="text-center justify-center ">
       <h1 className="Montserrat font-bold text-2xl text-black lg:pl-28">

@@ -18,8 +18,8 @@ function sala() {
     await axios.post(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getSalas`, {
       number: salas
     }).then(element => {
-        setData(element.data);
-      });
+      setData(element.data);
+    });
   }
 
   useEffect(() => {
@@ -32,13 +32,23 @@ function sala() {
       if (text > inputValue.length) {
         setData(datas.filter(e => String(e).includes(inputValue)));
         setText(text - 1);
-      } 
+      }
       setText(inputValue.length);
     } else {
       setText(0);
       chamadaDB();
     }
   };
+
+  if (datas.length == 0 & text == '') {
+    return (
+      <div className='flex justify-center'>
+        <div className='flex justify-center mt-80 bg-ipt w-96 h-32 items-center text-2xl'>
+          <h1 className='text-white'>Carregando....</h1>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex justify-center text-center">
@@ -63,6 +73,21 @@ function sala() {
     </div>
   );
 }
+
+export const getServerSideProps = async ctx => {
+  let cookieToken = ctx.req.cookies['token'];
+
+  await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+    headers: { Authorization: `Bearer ${cookieToken}` }
+  }).then(response => {}).catch(error => {
+    ctx.res.writeHead(302, {
+      Location: '/'
+    });
+    ctx.res.end();
+  });
+
+  return { props: {} };
+};
 
 
 export default sala;
