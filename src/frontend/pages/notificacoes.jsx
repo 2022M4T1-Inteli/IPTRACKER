@@ -2,6 +2,7 @@ import SideBar from "../components/SideBar"
 import Link from "next/link"
 import Notificacao from "../components/Notificacao/notificacao"
 import TipoNotificacao from "../components/TipoNotificacao/TipoNotificacao"
+import axios from "axios"
 
 function Notificacoes() {
     return(

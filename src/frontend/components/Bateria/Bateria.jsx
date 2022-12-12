@@ -33,14 +33,14 @@ function StatusdaBateria({ props }) {
           >
             <div className="flex  m-4 rounded-md bg-ipt w-24 p-2 text-white items-center justify-center hover:scale-125 duration-200">
               <Link href={`/admin/${element.patrimonioId}`}>
-                <button className="ml-2 text-2xl ">
+                <button className="ml-2 text-xl">
                   Id: {element.patrimonioId}
                 </button>
               </Link>
             </div>
 
-            <div className="flex flex-col gap-2 text-2xl items-center justify-center m-4">
-              <h1>Predio - {element.predio}</h1>
+            <div className="flex flex-col gap-2 text-xl items-center justify-center m-4">
+              <h1>Prédio - {element.predio}</h1>
               <h1>Sala - {element.sala}</h1>
             </div>
 
