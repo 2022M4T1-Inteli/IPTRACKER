@@ -24,44 +24,44 @@ Os representantes do IPT chegaram ao Inteli apresentando o seguinte problema: o 
 
 ## 🛠 Estrutura de pastas
 
-:file_folder: documentos▾
+:file_folder: documentos▾<br>
 &emsp; :file_folder: antigos</br>
 
-:file_folder: ESP32_Codigo▾
-&emsp; :file_folder: Beacon
-&emsp; :file_folder: sketch_oct31a
+:file_folder: ESP32_Codigo▾<br>
+&emsp; :file_folder: Beacon<br>
+&emsp; :file_folder: sketch_oct31a<br>
 &emsp; :file_folder: tocaBuzzer</br>
 
-:file_folder: src▾
-&emsp; :file_folder: Backend▾
-&emsp; &emsp; :file_folder: configs▾
-&emsp; &emsp; &emsp; :file_folder: esp-32▾
-&emsp; &emsp; &emsp; &emsp; :file_folder: src
-&emsp; &emsp;  :file_folder: controllers
-&emsp; &emsp; :file_folder: Middlewares
-&emsp; &emsp; :file_folder: Models
-&emsp; &emsp; :file_folder: Routes
+:file_folder: src▾<br>
+&emsp; :file_folder: Backend▾<br>
+&emsp; &emsp; :file_folder: configs▾<br>
+&emsp; &emsp; &emsp; :file_folder: esp-32▾<br>
+&emsp; &emsp; &emsp; &emsp; :file_folder: src<br>
+&emsp; &emsp;  :file_folder: controllers<br>
+&emsp; &emsp; :file_folder: Middlewares<br>
+&emsp; &emsp; :file_folder: Models<br>
+&emsp; &emsp; :file_folder: Routes<br>
 &emsp; &emsp; :file_folder: services</br>
 
-:file_folder: frontend ▾
-&emsp; &emsp; :file_folder: components▾
-&emsp; &emsp; &emsp; :file_folder: Bateria
-&emsp; &emsp; &emsp; :file_folder: buscaId
-&emsp; &emsp; &emsp; :file_folder: ContainerEquipamentos
-&emsp; &emsp; &emsp; :file_folder: EquipamentosBloco
-&emsp; &emsp; &emsp; :file_folder: Historico
-&emsp; &emsp; &emsp; :file_folder: Layout
-&emsp; &emsp; &emsp; :file_folder: ModalPredio
-&emsp; &emsp; &emsp; :file_folder: Notificacao
-&emsp; &emsp; &emsp; :file_folder: Predio
-&emsp; &emsp; &emsp; :file_folder: Sala
-&emsp; &emsp; &emsp; :file_folder: TipoNotificacao
-&emsp; &emsp; :file_folder: pages▾
-&emsp; &emsp; &emsp; :file_folder: admin
-&emsp; &emsp; &emsp; :file_folder: equipamentos
-&emsp; &emsp; &emsp; :file_folder: salas
-&emsp; &emsp; :file_folder: public
-&emsp; &emsp; :file_folder: styles  
+:file_folder: frontend ▾<br>
+&emsp; &emsp; :file_folder: components▾<br>
+&emsp; &emsp; &emsp; :file_folder: Bateria<br>
+&emsp; &emsp; &emsp; :file_folder: buscaId<br>
+&emsp; &emsp; &emsp; :file_folder: ContainerEquipamentos<br>
+&emsp; &emsp; &emsp; :file_folder: EquipamentosBloco<br>
+&emsp; &emsp; &emsp; :file_folder: Historico<br>
+&emsp; &emsp; &emsp; :file_folder: Layout<br>
+&emsp; &emsp; &emsp; :file_folder: ModalPredio<br>
+&emsp; &emsp; &emsp; :file_folder: Notificacao<br>
+&emsp; &emsp; &emsp; :file_folder: Predio<br>
+&emsp; &emsp; &emsp; :file_folder: Sala<br>
+&emsp; &emsp; &emsp; :file_folder: TipoNotificacao<br>
+&emsp; &emsp; :file_folder: pages▾<br>
+&emsp; &emsp; &emsp; :file_folder: admin<br>
+&emsp; &emsp; &emsp; :file_folder: equipamentos<br>
+&emsp; &emsp; &emsp; :file_folder: salas<br>
+&emsp; &emsp; :file_folder: public<br>
+&emsp; &emsp; :file_folder: styles<br>
 &emsp;  :file_folder: postmanCollection</br>
   
 Dentre os arquivos presentes na raiz do projeto, definem-se:
