@@ -5,41 +5,34 @@ let newSSIDs = { ssid: [], rssi: [] };
 
 async function getRoom(array) {
   if (array.ssid == "" || array.rssi == "") {
-    return {
+      return {
       room: 404,
       building: 404,
-    };
+      };
   }
 
-  array.ssid.map(async (each, index) => {
-    if (each[0] == "i" && each[1] == "p" && each[2] == "t" && each[3] == "-") {
-      newSSIDs.ssid.push(each);
-      newSSIDs.rssi.push(array.rssi[index]);
-    }
-  });
+  if (array.ssid.length > 1) {
+      const max = Math.max(...array.rssi);
+      const index = array.rssi.indexOf(max);
+      let location = array.ssid[index].split("-")[1];
+      location = location.split("_");
+      const room = location[0];
+      const building = location[1];
 
-  if (newSSIDs.ssid.length > 1) {
-    const max = Math.max(...newSSIDs.rssi);
-    const index = newSSIDs.rssi.indexOf(max);
-    let location = newSSIDs.ssid[index].split("-")[1];
-    location = location.split("_");
-    const room = location[0];
-    const building = location[1];
-
-    return {
+      return {
       room: room,
       building: building,
-    };
+      };
   } else {
-    let location = newSSIDs.ssid[0].split("-")[1];
-    location = location.split("_");
-    const room = location[0];
-    const building = location[1];
+      let location = array.ssid[0].split("-")[1];
+      location = location.split("_");
+      const room = location[0];
+      const building = location[1];
 
-    return {
+      return {
       room: room,
       building: building,
-    };
+      };
   }
 }
 

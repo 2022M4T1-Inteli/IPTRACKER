@@ -16,7 +16,7 @@
 #define LED_BUILTIN 2   // Set the GPIO pin where you connected your test LED or comment this line out if your dev board has a built-in LED
 
 // Set these to your desired credentials.
-const char *ssid = "ipt-1_2";
+const char *ssid = "loc-4_3";
 const char *password = "123456789";
 
 WiFiServer server(80);
