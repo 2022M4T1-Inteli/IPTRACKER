@@ -71,5 +71,11 @@ router.put(
     deviceController.updateDevice
 )
 
+router.delete(
+    "/deleteDevice/:macAddress",
+    [param("macAddress", "MacAddress do Patrimonio é necessário").exists({ checkFalsy: true })],
+    deviceController.deleteDevice
+)
+
 //Exporta o ROUTER
 module.exports = router;

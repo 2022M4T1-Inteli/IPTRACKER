@@ -21,7 +21,7 @@ function admin() {
 
     function callBuzzer() {
         console.log("callBuzzer");
-        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Buzzer/ligar/${data.patrimonioId}`).then(res => {
+        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Buzzer/ligar/${data.macAddress}`).then(res => {
             console.log(res)
         });
         document.getElementById("btnAccept").style.display = "none";
@@ -30,7 +30,7 @@ function admin() {
 
     function cancelBuzzer() {
         console.log("cancelBuzzer");
-        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Buzzer/desligar/${data.patrimonioId}`).then(res => {
+        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Buzzer/desligar/${data.macAddress}`).then(res => {
             console.log(res)
         });
         document.getElementById("btnCancel").style.display = "none";

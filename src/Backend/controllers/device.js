@@ -168,6 +168,25 @@ const updateDevice = async (req, res) => {
   }
 }
 
+const deleteDevice = async (req, res) => {
+  const { macAddress } = req.params;
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      error: errors.errors[0].msg,
+    });
+  }
+
+  try {
+    const result = await Device.deleteDevice(macAddress);
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+}
+
 //Exporta as funções do controller para o ROUTER
 module.exports = {
   teste,
@@ -179,5 +198,6 @@ module.exports = {
   getSalas,
   getEquipamentoSala,
   getInfosDevice,
-  updateDevice
+  updateDevice,
+  deleteDevice
 };

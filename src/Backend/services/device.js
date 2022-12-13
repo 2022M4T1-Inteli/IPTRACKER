@@ -213,9 +213,6 @@ class Device {
   }
 
   async updateDevice(macAddress, name, patId) {
-
-    console.log(macAddress, name, patId)
-
     let editing = {
       name: "",
       patrimonioId: "",
@@ -233,13 +230,20 @@ class Device {
       throw new Error("Nenhum dado para atualizar");
     }
 
-    console.log(editing)
-
     try {
       await Patrimonio.findOneAndUpdate({ macAddress: macAddress }, editing);
       return "Atualizado com sucesso"
     } catch {
       throw new Error("Erro ao atualizar o dispositivo");
+    }
+  }
+
+  async deleteDevice(macAddress) {
+    try {
+      await Patrimonio.findOneAndDelete({ macAddress: macAddress });
+      return "Deletado com sucesso"
+    } catch {
+      throw new Error("Erro ao deletar o dispositivo");
     }
   }
 }

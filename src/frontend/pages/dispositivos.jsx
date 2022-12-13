@@ -12,10 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 function Dispositivos() {
-
     const Router = useRouter()
 
     const [isOpened, setIsOpened] = useState(false)
@@ -51,6 +48,17 @@ function Dispositivos() {
         })
     }
 
+    const deleteDevice = (dispositivo) => {
+        console.log(dispositivo)
+        axios.delete(`http://localhost:3001/Device/deleteDevice/${dispositivo.macAddress}`)
+        .then((response) => {
+            toast.success(response.data)
+            loadInfos()
+        }).catch((error) => {
+            toast.error(error.response.data)
+        })
+    }
+
     const ModalEditar = ({ modalOpened }) => {
         return modalOpened ? (
             <div className={styles.modalContent}>
@@ -82,9 +90,7 @@ function Dispositivos() {
                 </div>
             </div>
         ) : null;
-    }
-
-    
+    }    
     
 
     return(
@@ -111,7 +117,7 @@ function Dispositivos() {
                                     <label className=''>{dispositivo.patrimonioId}</label>
                                 </div>
                                 <div className='flex flex-row gap-4 justify-center items-center'>
-                                    <button className='bg-transparent'>
+                                    <button className='bg-transparent' onClick={() => {deleteDevice(dispositivo)}}>
                                         <FontAwesomeIcon
                                         className='w-4 h-4 md:w-6 md:h-6 text-red-500'
                                         icon={faTrash}
