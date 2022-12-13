@@ -74,6 +74,7 @@ class Device {
         historico: "[]",
         batery: 100,
         created_at: actualData,
+        updated_at: actualData,
       })
 
       try {
@@ -88,6 +89,7 @@ class Device {
       const edit = JSON.parse(device.historico);
       edit.push({ local: `${sala}_${predio}`, data: actualData });
       device.historico = JSON.stringify(edit);
+      device.updated_at = actualData;
   
       try {
         await device.save();

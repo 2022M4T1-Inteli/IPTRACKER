@@ -45,6 +45,11 @@ const PatrimonioSchema = new Schema({
         type: String,
         description: "Data de criação do Patrimonio"
     },
+
+    updated_at: {
+        type: String,
+        description: "Data de criação do Patrimonio"
+    },
 })
 
 const Patrimonio = mongoose.model('Patriminio', PatrimonioSchema);
