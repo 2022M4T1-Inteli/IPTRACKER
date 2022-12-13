@@ -36,6 +36,11 @@ const PatrimonioSchema = new Schema({
         description: "Nivel de bateria do Patrimonio"
     },
 
+    macAddress: {
+        type: String,
+        description: "Mac Address do Patrimonio"
+    },
+
     created_at: {
         type: String,
         description: "Data de criação do Patrimonio"

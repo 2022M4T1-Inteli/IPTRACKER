@@ -43,38 +43,60 @@ class Device {
     let sala;
     let predio;
 
-    let patrimonioId = content.patrimonioId;
+    let macAddress = content.macAddress;
 
     let actualData = new Date().toUTCString();
-
-    console.log(actualData);
 
     try {
       const { room, building } = await getRoom(content);
       sala = room;
       predio = building;
     } catch (err) {
+      console.log(err)
       throw new Error(err);
     }
 
+    let device = "";
+
     try {
-      const device = await Patrimonio.findOne({ patrimonioId: patrimonioId });
+      device = await Patrimonio.findOne({ macAddress: macAddress });
+    } catch(err) {
+      throw new Error(err);
+    }
+
+    if (device == null) {
+      const newDevice = new Patrimonio({
+        patrimonioId: "",
+        macAddress: macAddress,
+        name: "",
+        sala: sala,
+        predio: predio,
+        historico: "[]",
+        batery: 100,
+        created_at: actualData,
+      })
+
+      try {
+        await newDevice.save();
+      } catch (err) {
+        console.log(err)
+        throw new Error(err);
+      }
+    } else {
       device.sala = sala;
       device.predio = predio;
       const edit = JSON.parse(device.historico);
       edit.push({ local: `${sala}_${predio}`, data: actualData });
       device.historico = JSON.stringify(edit);
-
+  
       try {
         await device.save();
       } catch (err) {
         throw new Error(err);
       }
-    } catch (err) {
-      throw new Error(err);
+  
+      newSSIDs = { ssid: [], rssi: [] };
     }
-
-    newSSIDs = { ssid: [], rssi: [] };
   }
 
   async pegarTodos() {
@@ -187,6 +209,37 @@ class Device {
       return device;
     } catch {
       throw new Error("Erro ao buscar as informações no banco de dados");
+    }
+  }
+
+  async updateDevice(macAddress, name, patId) {
+
+    console.log(macAddress, name, patId)
+
+    let editing = {
+      name: "",
+      patrimonioId: "",
+    }
+
+    if (name != "") {
+      editing.name = name;
+    }
+
+    if(patId != "") {
+      editing.patrimonioId = String(patId);
+    }
+
+    if(patId == "" && name == "") {
+      throw new Error("Nenhum dado para atualizar");
+    }
+
+    console.log(editing)
+
+    try {
+      await Patrimonio.findOneAndUpdate({ macAddress: macAddress }, editing);
+      return "Atualizado com sucesso"
+    } catch {
+      throw new Error("Erro ao atualizar o dispositivo");
     }
   }
 }
