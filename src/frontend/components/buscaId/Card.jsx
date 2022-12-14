@@ -16,8 +16,14 @@ function Card({ mock }) {
             </div>
 
             <div className="flex flex-col gap-2 text-2xl items-center justify-center m-4">
-              <h1>Predio - {element.predio}</h1>
-              <h1>Sala - {element.sala}</h1>
+              {(element.predio == "404" && element.sala == "404") ? 
+                <h1>Objeto está fora do IPT</h1> :
+                <>
+                  <h1>Predio - {element.predio}</h1>
+                  <h1>Sala - {element.sala}</h1>
+                </>
+              }
+              
             </div>
 
             <div className="text-2xl text-center">

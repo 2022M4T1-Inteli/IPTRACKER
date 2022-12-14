@@ -19,7 +19,7 @@ function Predio({props}) {
 
                         <div className='flex justify-start m-4 rounded-md bg-ipt w-24 p-2 text-white hover:scale-125 duration-200 '>
                             <Link href={`/salas/${element.predio}`}>
-                                <button className='ml-2'>Prédio {element.predio}</button>
+                                <button className='ml-2'>{element.predio == "404" ? "Fora do IPT" : `Prédio ${element.predio}`}</button>
                             </Link>
                         </div>
 

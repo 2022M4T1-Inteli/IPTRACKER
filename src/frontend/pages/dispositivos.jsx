@@ -20,7 +20,7 @@ function Dispositivos() {
     const [dispositivoEdit, setDispositivoEdit] = useState({})
 
     const loadInfos = () => {
-        axios.get('http://localhost:3001/Device/equipamentosRegistrados').then((response) => {
+        axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/equipamentosRegistrados`).then((response) => {
             console.log(response.data)
             setDispositivo(response.data)
         }).catch((error) => {
@@ -33,7 +33,7 @@ function Dispositivos() {
     }, [])
 
     const updateInfos = (name, id) => {
-        axios.put('http://localhost:3001/Device/updateDevice', {
+        axios.put(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/updateDevice`, {
             deviceName: name,
             macAddress: dispositivoEdit.macAddress,
             patId: id
@@ -50,7 +50,7 @@ function Dispositivos() {
 
     const deleteDevice = (dispositivo) => {
         console.log(dispositivo)
-        axios.delete(`http://localhost:3001/Device/deleteDevice/${dispositivo.macAddress}`)
+        axios.delete(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/deleteDevice/${dispositivo.macAddress}`)
         .then((response) => {
             toast.success(response.data)
             loadInfos()
@@ -141,3 +141,18 @@ function Dispositivos() {
 }
 
 export default Dispositivos
+
+export const getServerSideProps = async (ctx) => {
+    let cookieToken = ctx.req.cookies['token'];
+  
+    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+      headers: { Authorization: `Bearer ${cookieToken}` }
+    }).then(response => { }).catch(error => {
+      ctx.res.writeHead(302, {
+        Location: '/'
+      });
+      ctx.res.end();
+    });
+  
+    return { props: {} };
+}
