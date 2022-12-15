@@ -8,7 +8,8 @@ import {
   faShield,
   faBuilding,
   faBell,
-  faBatteryQuarter
+  faBatteryQuarter,
+  faMicrochip
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
@@ -45,13 +46,13 @@ function SideBar() {
           <div className="group flex justify-center items-center w-3/5 h-12 mt-4">
             <div>
               <button
-                className="hover:scale-125 duration-200 transition-property: w-full h-full bg-transparent"
+                className="hover:scale-125 duration-200 transition-property: w-full h-full bg-transparent text-white group-hover:text-black"
                 onClick={() => setActive(!active)}
               >
                 <FontAwesomeIcon
                   icon={active ? faArrowLeft : faArrowRight}
                   size="2xl"
-                  className="hover:text-white"
+                  className=""
                 />
               </button>
               {active ? (
@@ -66,8 +67,8 @@ function SideBar() {
           <Link href="/opcoes" className="">
             <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer ">
               <div>
-                <button className="w-full h-full bg-transparent">
-                  <FontAwesomeIcon icon={faHouse} size="xl" />
+                <button className="w-full h-full text-white hover:text-black  bg-transparent">
+                  <FontAwesomeIcon icon={faHouse} size="xl" className='' />
                   {active ? (
                     <label className="ml-4 Montserrat">Home</label>
                   ) : (
@@ -89,7 +90,7 @@ function SideBar() {
             <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl cursor-pointer">
               <div>
                 <button className="w-full h-full bg-transparent">
-                  <FontAwesomeIcon icon={faBuilding} size="xl" />{' '}
+                  <FontAwesomeIcon icon={faBuilding} size="xl" className='text-white group-hover:text-black' />{' '}
                   {active ? (
                     <label className="Montserrat">Dispositivos</label>
                   ) : (
@@ -109,7 +110,7 @@ function SideBar() {
           <Link href="/notificacoes">
             {admin ? (
               <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
-                <button className="w-full h-full bg-transparent">
+                <button className="w-full h-full bg-transparent text-white hover:text-black">
                   <FontAwesomeIcon icon={faBell} size="xl" />{' '}
                   {active ? (
                     <label className="ml-2 Montserrat">Notificações</label>
@@ -133,7 +134,7 @@ function SideBar() {
           <Link href="/bateria">
             {admin ? (
               <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
-                <button className="w-full h-full bg-transparent">
+                <button className="w-full h-full bg-transparent text-white hover:text-black">
                   <FontAwesomeIcon icon={faBatteryQuarter} size="xl" />{' '}
                   {active ? (
                     <label className="ml-2 Montserrat">Bateria</label>
@@ -152,6 +153,27 @@ function SideBar() {
             ) : (
               ''
             )}
+          </Link>
+
+
+          <Link href="/dispositivos">
+            <div className="hover:scale-125 duration-200 group flex justify-center items-center w-3/5 h-12 mt-4 bg-ipt hover:bg-white rounded-2xl transition cursor-pointer">
+              <button className="w-full h-full bg-transparent text-white hover:text-black">
+                <FontAwesomeIcon icon={faMicrochip} size="xl" />{' '}
+                {active ? (
+                  <label className="ml-2 Montserrat">Equipamentos</label>
+                ) : (
+                  ''
+                )}
+              </button>
+              {active ? (
+                ''
+              ) : (
+                <label className="absolute left-24 bg-ipt w-32 rounded-lg justify-center h-8 items-center hidden group-hover:flex transition duration-500">
+                  Equipamentos
+                </label>
+              )}
+            </div>
           </Link>
         </div>
       </div>
