@@ -10,9 +10,11 @@ function Predios() {
   const [datas, setData] = useState([]);
 
   async function chamadaDB() {
-    await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getPredios`).then(response => {
-      setData(response.data)
-    });
+    await axios
+      .get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/Device/getPredios`)
+      .then(response => {
+        setData(response.data);
+      });
   }
 
   useEffect(() => {
@@ -38,14 +40,14 @@ function Predios() {
     }
   };
 
-  if (datas.length == 0 & text == '') {
+  if ((datas.length == 0) & (text == '')) {
     return (
-      <div className='flex justify-center'>
-        <div className='flex justify-center mt-80 bg-ipt w-96 h-32 items-center text-2xl'>
-          <h1 className='text-white'>Carregando....</h1>
+      <div className="flex justify-center">
+        <div className="flex justify-center mt-80 bg-ipt w-96 h-32 items-center text-2xl">
+          <h1 className="text-white">Carregando....</h1>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -75,14 +77,17 @@ function Predios() {
 export const getServerSideProps = async ctx => {
   let cookieToken = ctx.req.cookies['token'];
 
-  await axios.get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
-    headers: { Authorization: `Bearer ${cookieToken}` }
-  }).then(response => {}).catch(error => {
-    ctx.res.writeHead(302, {
-      Location: '/'
+  await axios
+    .get(`${process.env.NEXT_PUBLIC_URL_SANDBOX}/User/Infos`, {
+      headers: { Authorization: `Bearer ${cookieToken}` }
+    })
+    .then(response => {})
+    .catch(error => {
+      ctx.res.writeHead(302, {
+        Location: '/'
+      });
+      ctx.res.end();
     });
-    ctx.res.end();
-  });
 
   return { props: {} };
 };

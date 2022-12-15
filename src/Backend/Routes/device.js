@@ -77,5 +77,6 @@ router.delete(
     deviceController.deleteDevice
 )
 
+
 //Exporta o ROUTER
 module.exports = router;

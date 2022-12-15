@@ -5,34 +5,34 @@ let newSSIDs = { ssid: [], rssi: [] };
 
 async function getRoom(array) {
   if (array.ssid == "" || array.rssi == "") {
-      return {
+    return {
       room: 404,
       building: 404,
-      };
+    };
   }
 
   if (array.ssid.length > 1) {
-      const max = Math.max(...array.rssi);
-      const index = array.rssi.indexOf(max);
-      let location = array.ssid[index].split("-")[1];
-      location = location.split("_");
-      const room = location[0];
-      const building = location[1];
+    const max = Math.max(...array.rssi);
+    const index = array.rssi.indexOf(max);
+    let location = array.ssid[index].split("-")[1];
+    location = location.split("_");
+    const room = location[0];
+    const building = location[1];
 
-      return {
+    return {
       room: room,
       building: building,
-      };
+    };
   } else {
-      let location = array.ssid[0].split("-")[1];
-      location = location.split("_");
-      const room = location[0];
-      const building = location[1];
+    let location = array.ssid[0].split("-")[1];
+    location = location.split("_");
+    const room = location[0];
+    const building = location[1];
 
-      return {
+    return {
       room: room,
       building: building,
-      };
+    };
   }
 }
 
@@ -52,7 +52,7 @@ class Device {
       sala = room;
       predio = building;
     } catch (err) {
-      console.log(err)
+      console.log(err);
       throw new Error(err);
     }
 
@@ -60,7 +60,7 @@ class Device {
 
     try {
       device = await Patrimonio.findOne({ macAddress: macAddress });
-    } catch(err) {
+    } catch (err) {
       throw new Error(err);
     }
 
@@ -75,12 +75,12 @@ class Device {
         batery: 100,
         created_at: actualData,
         updated_at: actualData,
-      })
+      });
 
       try {
         await newDevice.save();
       } catch (err) {
-        console.log(err)
+        console.log(err);
         throw new Error(err);
       }
     } else {
@@ -90,13 +90,13 @@ class Device {
       edit.push({ local: `${sala}_${predio}`, data: actualData });
       device.historico = JSON.stringify(edit);
       device.updated_at = actualData;
-  
+
       try {
         await device.save();
       } catch (err) {
         throw new Error(err);
       }
-  
+
       newSSIDs = { ssid: [], rssi: [] };
     }
   }
@@ -109,7 +109,13 @@ class Device {
     }
   }
 
-  async createDevice(patID, deviceName, deviceSala, devicePredio, deviceBattery) {
+  async createDevice(
+    patID,
+    deviceName,
+    deviceSala,
+    devicePredio,
+    deviceBattery
+  ) {
     const actualData = new Date().toUTCString();
 
     const alreadyExist = await Patrimonio.findOne({ patrimonioId: patID });
@@ -218,23 +224,23 @@ class Device {
     let editing = {
       name: "",
       patrimonioId: "",
-    }
+    };
 
     if (name != "") {
       editing.name = name;
     }
 
-    if(patId != "") {
+    if (patId != "") {
       editing.patrimonioId = String(patId);
     }
 
-    if(patId == "" && name == "") {
+    if (patId == "" && name == "") {
       throw new Error("Nenhum dado para atualizar");
     }
 
     try {
       await Patrimonio.findOneAndUpdate({ macAddress: macAddress }, editing);
-      return "Atualizado com sucesso"
+      return "Atualizado com sucesso";
     } catch {
       throw new Error("Erro ao atualizar o dispositivo");
     }
@@ -243,7 +249,7 @@ class Device {
   async deleteDevice(macAddress) {
     try {
       await Patrimonio.findOneAndDelete({ macAddress: macAddress });
-      return "Deletado com sucesso"
+      return "Deletado com sucesso";
     } catch {
       throw new Error("Erro ao deletar o dispositivo");
     }
