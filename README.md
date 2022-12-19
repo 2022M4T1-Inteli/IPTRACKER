@@ -49,7 +49,7 @@ Um guia para a execução desse projeto pode ser encontrado no conteúdo do docu
 
 Se preferir, também é possível acessá-lo a partir do seguinte link:
 
-https://github.com/2022M4T1-Inteli/IPTRACKER/blob/main/documentos/T1_G2_V5_Instruction_Manual.pdf
+https://github.com/2022M4T1-Inteli/IPTRACKER/blob/main/documentos/T1_G2_V2_Instruction_Manual.pdf
 
 
 ## 💻 Configuração para Desenvolvimento
