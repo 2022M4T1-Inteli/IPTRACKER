@@ -4,7 +4,7 @@
 <a  href= "https://www.inteli.edu.br/"><img  src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png"  alt="Inteli - Instituto de Tecnologia e Liderança"  border="0"></a>
 </p>
 
-# IPTRACKER
+# IPTracker
 
 ## Solução IoT para o Instituto de Pesquisas Tecnológicas (IPT)
 
@@ -22,57 +22,34 @@
 
 Os representantes do IPT chegaram ao Inteli apresentando o seguinte problema: o instituto apresenta, atualmente, R$187 milhões em máquinas e equipamentos em seu ativo. Este valor abrange aproximadamente 20.000 itens, dos quais 4000 necessitam ser monitorados. Diante dessa situação, acrescenta-se o fato de que, por tratar-se de uma empresa pública, o IPT é, periodicamente, submetido a auditorias, entre elas: Secretaria da Fazenda do Estado de São Paulo, Tribunal de Contas do Estado, auditoria independente, auditorias de financiadores de projetos (FINEP, EMBRAPII, BNDES etc). Frequentemente, os auditores necessitam ver o ativo in loco (no próprio local) e, muitas vezes, os equipamentos não encontram-se no endereço informado no sistema. Logo, a fim de mitigar o problema supracitado, espera-se o desenvolvimento de um dispositivo que possa ser acoplado nos principais ativos do IPT para que a localização deles possa ser monitorada por meio da rede interna, ou seja, o desenvolvimento de dispositivo para localização real dos ativos por meio de IoT.
 
-## 🛠 Estrutura de pastas
+## 📁 Estrutura de pastas
 
-:file_folder: documentos▾<br>
-&emsp; :file_folder: antigos</br>
 
-:file_folder: ESP32_Codigo▾<br>
-&emsp; :file_folder: Beacon<br>
-&emsp; :file_folder: sketch_oct31a<br>
-&emsp; :file_folder: tocaBuzzer</br>
+|--> documentos<br>
+  &emsp;| --> outros <br>
+  &emsp;| T1_G2_V5_IoT_Document.pdf<br>
+  &emsp;| T1_G2_V5_Instruction_Manual.pdf<br>
+|--> src<br>
+  &emsp;|--> Backend<br>
+  &emsp;|--> Circuito<br>
+  &emsp;|--> Frontend<br>
+| readme.md<br>
 
-:file_folder: src▾<br>
-&emsp; :file_folder: Backend▾<br>
-&emsp; &emsp; :file_folder: configs▾<br>
-&emsp; &emsp; &emsp; :file_folder: esp-32▾<br>
-&emsp; &emsp; &emsp; &emsp; :file_folder: src<br>
-&emsp; &emsp;  :file_folder: controllers<br>
-&emsp; &emsp; :file_folder: Middlewares<br>
-&emsp; &emsp; :file_folder: Models<br>
-&emsp; &emsp; :file_folder: Routes<br>
-&emsp; &emsp; :file_folder: services</br>
+Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
-:file_folder: frontend ▾<br>
-&emsp; &emsp; :file_folder: components▾<br>
-&emsp; &emsp; &emsp; :file_folder: Bateria<br>
-&emsp; &emsp; &emsp; :file_folder: buscaId<br>
-&emsp; &emsp; &emsp; :file_folder: ContainerEquipamentos<br>
-&emsp; &emsp; &emsp; :file_folder: EquipamentosBloco<br>
-&emsp; &emsp; &emsp; :file_folder: Historico<br>
-&emsp; &emsp; &emsp; :file_folder: Layout<br>
-&emsp; &emsp; &emsp; :file_folder: ModalPredio<br>
-&emsp; &emsp; &emsp; :file_folder: Notificacao<br>
-&emsp; &emsp; &emsp; :file_folder: Predio<br>
-&emsp; &emsp; &emsp; :file_folder: Sala<br>
-&emsp; &emsp; &emsp; :file_folder: TipoNotificacao<br>
-&emsp; &emsp; :file_folder: pages▾<br>
-&emsp; &emsp; &emsp; :file_folder: admin<br>
-&emsp; &emsp; &emsp; :file_folder: equipamentos<br>
-&emsp; &emsp; &emsp; :file_folder: salas<br>
-&emsp; &emsp; :file_folder: public<br>
-&emsp; &emsp; :file_folder: styles<br>
-&emsp;  :file_folder: postmanCollection</br>
-  
-Dentre os arquivos presentes na raiz do projeto, definem-se:
+- <b>readme.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
 
-**readme.md**: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
+- <b>documentos</b>: aqui estão todos os documentos do projeto, incluindo o manual de instruções. Há também uma pasta denominada <b>outros</b> onde estão presentes outros documentos complementares.
 
-**.gitignore**: arquivo que faz com que o GitHub ignore os arquivos que não devem ser inseridos no repositório.
+- <b>src</b>: todo o código fonte criado para o desenvolvimento do projeto, incluindo os blocos de código do circuito, backend e frontend se aplicáveis.
 
-**documentos**: aqui estarão o IoTDoc e Manual de Instruções do projeto.
+## 💻 Execução do projeto
 
-**src**: nesta pasta encontra-se todo o código-fonte dos embarcados, front-end e back-end.
+Um guia para a execução desse projeto pode ser encontrado no conteúdo do documento "Manual de Instruções", dentro da pasta "documentos".
+
+Se preferir, também é possível acessá-lo a partir do seguinte link:
+
+https://github.com/2022M4T1-Inteli/IPTRACKER/blob/main/documentos/T1_G2_V5_Instruction_Manual.pdf
 
 
 ## 💻 Configuração para Desenvolvimento
@@ -142,13 +119,17 @@ Por fim, o link http://localhost:3000/ será exibido. É necessário acessá-lo 
   
   
 
+
+
 ## 📋 Licença/License
 
-<img  style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"  src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img  style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"  src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
 
-<p  xmlns:cc="http://creativecommons.org/ns#"  xmlns:dct="http://purl.org/dc/terms/"><a  property="dct:title"  rel="cc:attributionURL"  href="https://github.com/Spidus/Teste_Final_1">Solução IoT para o Instituto de Pesquisas Tecnológicas</a> by <a  rel="cc:attributionURL dct:creator"  property="cc:attributionName"  href="https://www.yggbrasil.com.br/vr">Inteli, Abner Silva Barbosa, Alberto da Rocha Miranda, Amanda Ribeiro Fontes, Gabriel Rios Torres, Livia Lopes Coutinho, Paulo Presa Evangelista, Pedro Hagge Baptista</a> is licensed under <a  href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"  target="_blank"  rel="license noopener noreferrer"  style="display:inline-block;">Attribution 4.0 International</a>.</p>
 
-  
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="#">IPTracker</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="#">Inteli, Abner Silva Barbosa, Alberto da Rocha Miranda, Amanda Ribeiro Fontes, Gabriel Rios Torres, Livia Lopes Coutinho, Paulo Presa Evangelista, Pedro Hagge Baptista</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+
 
 ## 🎓 Referências
 
